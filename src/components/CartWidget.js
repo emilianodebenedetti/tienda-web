@@ -1,4 +1,5 @@
 import React from 'react'
+import ItemCount from './ItemCount'
 
 const CartWidget = () => {
   return (
@@ -11,8 +12,10 @@ const CartWidget = () => {
             </label>
             <div class="mt-3 card card-compact dropdown-content w-52 bg-slate-300 shadow">
                 <div class="card-body">
-                    <span class="font-bold text-lg text-black">11 Productos</span>
-                    <span class="text-info">CartWidget</span>
+                    <span class="font-bold text-lg text-black"> Productos</span>
+                    
+                    <ItemCount stock="5" initial="1"/>
+                    
                     <div class="card-actions">
                         <button class="btn btn-primary btn-block">Ver carro</button>
                     </div>

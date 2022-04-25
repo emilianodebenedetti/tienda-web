@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
+import Contador from './components/Contador';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           Sitio en construcción, vuelva más tarde..
         </h1>
         <ItemListContainer/>
+        <Contador/>
        
       </body>
     </div>
