@@ -1,18 +1,26 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
-import ItemCount from './components/ItemCount';
+import NavBar from './components/NavBarr/NavBar';
+import ItemCount from './components/Shop/ItemCount/ItemCount';
+import ItemDetailContainer from './components/Shop/ItemDetail/ItemDetailContainer';
+import ItemListContainer from './components/Shop/ItemList/ItemListContainer';
+
 
 
 function App() {
   return (
-    <div className="App">
-       
-      <NavBar/>        
-      <ItemListContainer saludo='Sitio en construcción, vuelva más tarde...'/>
-      <ItemCount stock={5} initial={1} />    
-      <br/>
-    </div>
+    <>
+      <BrowserRouter>
+        <NavBar/>
+        <Routes>
+          <Route path="/" element={<ItemListContainer/>}/>
+          <Route path="/category/:categoryId" element={<ItemListContainer />} />
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+        </Routes>
+      </BrowserRouter>
+      
+      <ItemCount/>
+    </>
   );
 }
 
