@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import { getItem } from '../../../data/ProductoData';
-
 import ItemList from './ItemList';
 
 const ItemListContainer = () => {
   
-  const { categories } = useParams()
 	const [category, setCategory] = useState()
+	
+	const { categories } = useParams()
 
 	useEffect(() => {
 		if (categories === undefined) {
@@ -21,9 +21,9 @@ const ItemListContainer = () => {
 
 	return (
 		<>
-			<div className="container">
-				<ItemList category={category} />
-			</div>
+			<div className="divider">Nuestros productos</div>
+			<ItemList category={category} />
+			
 		</>
 	)
   

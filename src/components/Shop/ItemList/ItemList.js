@@ -3,20 +3,21 @@ import Item from '../Item/Item';
 
 
 export const ItemList = ({ category }) => {
-  console.log(category)
 
   return (
     <>
-      <div className='row'>
+      <div className='container mx-auto flex flex-wrap gap-3 justify-center'>
         {category && 
               category.map((product) => (
-                <Item
+                <Item 
+                  key={product.id} 
+                  product={product}
                   id={product.id}
                   name={product.name}
                   stock={product.stock}
+                  desripcion={product.descripcion}
                   price={product.price}
                   img={product.img}
-                  key={product.id}
                 />
               ))}
       </div>
@@ -27,7 +28,7 @@ export const ItemList = ({ category }) => {
 export default ItemList
 
 
-
+/*                 */
 
 
 

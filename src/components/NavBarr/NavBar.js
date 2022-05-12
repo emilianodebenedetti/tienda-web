@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import CartWidget from './CartWidgt/CartWidget'
 
 
@@ -20,14 +21,12 @@ const NavBar = () => {
         </div>
       </label>
       <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-300 rounded-box w-52">
-        <li>
-          <a className="justify-between">
-            Perfil
-            <span className="badge">New</span>
-          </a>
-        </li>
-        <li><a>Configuración</a></li>
-        <li><a>Cerrar sesión</a></li>
+        <Link to="/category/calzado">
+          Calzado
+          <span className="badge">New</span>          
+        </Link>
+        <Link to="/category/indumentaria">Indumentaria</Link>
+        <Link to="/category/accesorios">Accesorios</Link>
       </ul>
     </div>
   </div>

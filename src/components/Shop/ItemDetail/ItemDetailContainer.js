@@ -1,17 +1,12 @@
 
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getItem } from '../../../data/ProductoData'
-
+import { getItem, ProductoData } from '../../../data/ProductoData'
 import ItemDetail from './ItemDetail'
-
-
-
-
 
 const ItemDetailContainer = () => {
   
-    const [producto, setProduct] = useState({})
+    const [product, setProduct] = useState({})
 	const { id } = useParams()
 
 	useEffect(() => {
@@ -22,12 +17,14 @@ const ItemDetailContainer = () => {
 		}
 	}, [id])
 
-	console.log(producto)
+	//console.log(product)
 
     return (
-    <div className="container mt-2">
-		<ItemDetail producto={producto} />
-	</div>
+	<>
+		<div className="container mt-2">
+			<ItemDetail producto={product} />
+		</div>
+	</>	
   )
 }
 
