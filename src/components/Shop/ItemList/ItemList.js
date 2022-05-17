@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Loader from '../../Loader';
 import Item from '../Item/Item';
 
 
@@ -28,7 +29,7 @@ export const ItemList = ({ category }) => {
 export default ItemList
 
 
-/*                 */
+
 
 
 
