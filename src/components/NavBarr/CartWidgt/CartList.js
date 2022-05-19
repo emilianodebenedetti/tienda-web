@@ -2,9 +2,11 @@ import React from 'react'
 
 const CartList = ( {prod} ) => {
   return (
-    <div>
+    <>
         <li>{prod.name}</li>
-    </div>
+        <li>{prod.price}</li>
+    </>
+    
   )
 }
 

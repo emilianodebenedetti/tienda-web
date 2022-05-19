@@ -1,6 +1,8 @@
-import React, { createContext, useContext, useState } from 'react'
+
 
 //metemos los valores a un array nuevo para no modificar el original
+
+import { createContext, useContext, useState } from "react"
 
 const CartContext = createContext() //contexto creado
 

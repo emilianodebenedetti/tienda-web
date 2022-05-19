@@ -1,8 +1,9 @@
- import React from 'react'
+import React from 'react'
 import { useCartContext } from '../../context/CartContext'
 import CartList from './CartList'
 
- const Cart = () => {
+
+const Cart = () => {
    const { cart, deleteFromCart } = useCartContext()
    const vaciarLista = () => { deleteFromCart() } //usamos funcion anonima para no generar un render infinito
    
@@ -15,6 +16,6 @@ import CartList from './CartList'
         { cart.map( p => <CartList key={p.id} prod={p}/> ) }
      </>
    )
- }
+}
  
  export default Cart

@@ -5,7 +5,8 @@ const CartView = ( {prod} ) => {
   return (
     <>
         <div className="divider">Tu carrito de compras</div>
-        {prod.name}
+        <Cart/>
+       
     </>
   )
 }
