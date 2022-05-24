@@ -13,9 +13,17 @@ const Cart = () => {
      <>
         <div>Cart</div>
         <button onClick={vaciarLista}> Vaciar lista </button>
-        { cart.map( p => <CartList key={p.id} prod={p}/> ) }
+        { cart.map( p => 
+        <CartList 
+         key={p.id} 
+         prod={p}
+         stock={p.stock}
+         price={p.price}
+         img={p.img}
+        /> ) }
      </>
    )
 }
+
  
  export default Cart

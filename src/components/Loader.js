@@ -3,9 +3,9 @@ import React from 'react'
 const Loader = () => {
  
     return (
-        <div class="flex items-center justify-center">
-            <div class="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded" role="status">
-                <span class="hidden">Loading...</span>
+        <div className="flex items-center justify-center">
+            <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded" role="status">
+                <span className="hidden">Loading...</span>
             </div>
         </div>
   )

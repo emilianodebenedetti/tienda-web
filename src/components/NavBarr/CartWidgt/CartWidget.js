@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 /* import Cart from './Cart' */
 import CartList from './CartList'
 
-const CartWidget = () => {
+const CartWidget = ({ prod }) => {   
   return (
         <div>
             <label tabIndex="0" className="btn btn-ghost btn-circle">
@@ -14,7 +14,9 @@ const CartWidget = () => {
             </label>
             <div className="mt-3 card card-compact dropdown-content w-52 bg-slate-300 shadow">
                 <div className="card-body">
-                    <span className="font-bold text-lg text-black"> <CartList/> </span>                    
+                    <span className="font-bold text-lg text-black"> 
+                        
+                    </span>                    
                     <div className="card-actions">
                         <Link className="btn" to={"/cart"}> Ver carro</Link> 
                     </div>
