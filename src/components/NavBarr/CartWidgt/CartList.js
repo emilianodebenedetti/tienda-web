@@ -1,17 +1,26 @@
 import React from 'react'
 
-const CartList = ( {prod} ) => {
-  /* const { name, description, price, img, category, stock,  } = prod */
+
+export default function CartList( { product } ) {
+  
   return (
     <>
-        <li>{prod.name}</li>
-        <li>{prod.price}</li>
-        <li>{prod.description}</li>
-        <img src='{prod.img}'></img> 
-        <li>{prod.category}</li>
-        <li>{prod.stock}</li>
+      <div className='container'>
+        <div className="alert shadow-lg">
+          <div>
+             <img src={product.img} className='stroke-info flex-shrink-0 w-10 h-auto'></img>  
+            <div>
+              <h3 className="font-bold">{product.name}</h3>
+              <div className="text-xs">Disponibles: {product.stock}</div>
+            </div>
+          </div>
+          <div className="flex-none">
+            <span> US$ {product.price} </span>
+          </div>
+        </div>
+      </div>
+
     </>
     
   )
 }
-export default CartList

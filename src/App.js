@@ -2,8 +2,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AppContextProvider from './components/context/AppContext';
 import CartContextProvider from './components/context/CartContext';
+import Footer from './components/footer/Footer';
+import Cart from './components/NavBarr/CartWidgt/Cart';
 import CartView from './components/NavBarr/CartWidgt/CartView';
 import NavBar from './components/NavBarr/NavBar';
+/* import ProductDetail from './components/Shop/firebase/ProductDetail'; */
 /* import ItemCount from './components/Shop/ItemCount/ItemCount';  */
 import ItemDetailContainer from './components/Shop/ItemDetail/ItemDetailContainer';
 import ItemListContainer from './components/Shop/ItemList/ItemListContainer';
@@ -19,7 +22,7 @@ function App() {
               <NavBar/>
               <Routes>
                 <Route 
-                  path="/" 
+                  exact path="/" 
                   element={<ItemListContainer/>}
                   />
                 <Route 
@@ -32,9 +35,10 @@ function App() {
                   />
                 <Route 
                   path="/cart" 
-                  element={<CartView/>}
+                  element={<Cart/>}
                   />
               </Routes>
+              <Footer/>
             </BrowserRouter>
         </CartContextProvider>
       </AppContextProvider>

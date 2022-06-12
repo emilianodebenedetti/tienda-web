@@ -2,26 +2,28 @@ import React, { useState } from 'react'
 import { useAppContext } from '../../context/AppContext';
 import { useCartContext } from '../../context/CartContext';
 
-const ItemCount = ({ stock, onAdd, id }) => {
+export const ItemCount = ({ initial, product, stock, onAdd, id }) => {
     
-    console.log('Aqui hay un render del componente Contador');
-    const [cantidad, setCount] = useState(0);
+    const [cantidad, setCantidad] = useState(initial);
    
 	const { addToCart } = useCartContext()
 	const { products } = useAppContext()
 
     const addHandler = () => {      
         if (cantidad < stock) {
-            setCount(cantidad + 1) 
+            setCantidad(cantidad + 1) 
         }
     }
+
     const restHandler = () => {      
-        if (cantidad > 0) {
-            setCount(cantidad - 1) 
+        if (cantidad > initial) {
+            setCantidad(cantidad - 1) 
         }                      
     }
+
+
 	const handleClick = (id, cantidad) => {
-		const findProduct = products.find((producto) => producto.id === id)
+		const findProduct = products.find((product) => product.id === id)
 		
 		if (!findProduct) {
 			alert("Error en la base de datos")
@@ -37,20 +39,23 @@ const ItemCount = ({ stock, onAdd, id }) => {
    return (
     <>
         <div className="d-flex flex-column ">
-			<div className="btns-count">
-				<button className="btn btn-block" onClick={restHandler}>
-					<i className="fas fa-minus">-</i>
-				</button>
-				<label className="alert alert-white cantidad-items justify-center">{cantidad}</label>
+			<div className="btns-count w-32 p-2 m-auto">
 				<button className="btn btn-block" onClick={addHandler}>
 					<i className="fas fa-plus">+</i>
 				</button>
+				
+				<label className="alert alert-white cantidad-items justify-center">{cantidad}</label>
+				
+				<button className="btn btn-block" onClick={restHandler}>
+					<i className="fas fa-minus">-</i>
+				</button>
+				
 			</div>
 
 			<div className="agreg-carrito">
 				<button
 					className="btn bg-primary text-white btn-block "
-					onClick={() => handleClick(id, cantidad)}
+					onClick={() => handleClick(product.id, cantidad)}
 				>
 					Agregar al Carro
 					</button>

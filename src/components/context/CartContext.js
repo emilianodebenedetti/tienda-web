@@ -1,8 +1,5 @@
+import  { createContext, useContext, useState } from "react"
 
-
-//metemos los valores a un array nuevo para no modificar el original
-
-import { createContext, useContext, useState } from "react"
 
 const CartContext = createContext() //contexto creado
 
@@ -44,7 +41,9 @@ const CartContextProvider = ({ children }) => {
             return 
         }
 
-        const deleteProduct = newCart.filter((prod) => prod.id !== producto.id)
+        const deleteProduct = newCart.filter(
+            (prod) => prod.id !== producto.id
+        )
 
         setCart(deleteProduct)
     }

@@ -1,32 +1,28 @@
-import React, { useState } from 'react'
-import Loader from '../../Loader';
-import Item from '../Item/Item';
+import { Item } from '../Item/Item';
 
 
-export const ItemList = ({ category }) => {
+export const ItemList = ({ products }) => {
 
   return (
     <>
-      <div className='container mx-auto flex flex-wrap gap-3 justify-center'>
-        {category && 
-              category.map((product) => (
+      <div className="container mx-auto flex flex-wrap gap-3 justify-center">
+        {products.map((product) => (
                 <Item 
-                  key={product.id} 
-                  product={product}
                   id={product.id}
                   name={product.name}
                   stock={product.stock}
-                  desripcion={product.descripcion}
+                  desription={product.description}
                   price={product.price}
                   img={product.img}
+                  key={product.id} 
                 />
-              ))}
+        ))}
       </div>
     </>
   );
 }
 
-export default ItemList
+export default ItemList 
 
 
 

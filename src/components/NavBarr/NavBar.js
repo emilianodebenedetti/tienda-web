@@ -3,34 +3,36 @@ import { Link } from 'react-router-dom'
 import CartWidget from './CartWidgt/CartWidget'
 
 
-const NavBar = () => {
+export const NavBar = () => {
   return (
     <div className="navbar bg-slate-300">
-    <div className="flex-1">
-      <a className="btn  btn-ghost normal-case text-xl text-black">MiTienda</a>
-    </div> 
-    <div className="flex-none">
-    <div className="dropdown dropdown-end"> 
-    <CartWidget/> 
-      
-    </div>
-    <div className="dropdown dropdown-end">
-      <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img src="https://api.lorem.space/image/face?hash=33791" />
-        </div>
-      </label>
-      <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-300 rounded-box w-52">
-        <Link to="/category/calzado">
-          Calzado
-          <span className="badge">New</span>          
+      <div className="flex-1">
+        <Link className="navbar-brand" to="/">
+          <a className="btn  btn-ghost normal-case text-xl text-black">MiTienda</a>
         </Link>
-        <Link to="/category/indumentaria">Indumentaria</Link>
-        <Link to="/category/accesorios">Accesorios</Link>
-      </ul>
+      </div> 
+
+      <div className="flex-none">
+      
+        <div className="flex ">
+          <ul className="navbar-nav ">
+            <Link to="/category/indumentaria" className="nav-link px-8">
+              Indumentaria
+            </Link>
+            <Link to="/category/calzado" className="nav-link px-8">
+              Calzado
+            </Link>
+            <Link to="/category/accesorios" className="nav-link px-8">
+              Accesorios
+            </Link>
+          </ul>
+        </div>
+      
+        <div className="dropdown dropdown-end"> 
+          <CartWidget/>      
+        </div>
+      </div>
     </div>
-  </div>
-</div>
        
   )
 }

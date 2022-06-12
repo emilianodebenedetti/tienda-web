@@ -9,17 +9,17 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+/* const firebaseConfig = {
   apiKey: "AIzaSyAPxhDCJ1_shUtPelaE3hQliQXXlk_kgog",
   authDomain: "e-commerce-reactjs-971e5.firebaseapp.com",
   projectId: "e-commerce-reactjs-971e5",
   storageBucket: "e-commerce-reactjs-971e5.appspot.com",
   messagingSenderId: "777417866691",
   appId: "1:777417866691:web:93808b9f82a50dc8d51176"
-};
+}; */
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig); 
+/* const app = initializeApp(firebaseConfig);  */
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

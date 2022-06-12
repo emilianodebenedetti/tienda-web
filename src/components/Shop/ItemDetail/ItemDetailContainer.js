@@ -1,28 +1,32 @@
 
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getItem, ProductoData } from '../../../data/ProductoData'
-import ItemDetail from './ItemDetail'
+import { useAppContext } from '../../context/AppContext'
+import { getItem } from '../../firebase/firebaseService'
+import  ItemDetail  from './ItemDetail'
 
-const ItemDetailContainer = () => {
+export const ItemDetailContainer = () => {
   
-    const [product, setProduct] = useState({})
+    const { products } = useAppContext()
+	const [  productSelected, setProductSelected ] = useState({})
 	const { id } = useParams()
 
 	useEffect(() => {
-		if (id === undefined) {
-			getItem().then((resp) => setProduct(resp))
-		} else {
-			getItem().then((resp) => setProduct(resp[id]))
-		}
-	}, [id])
+		getItem(id).then((item) => 
+			setProductSelected({ ...item.data(), id: item.id })
+		)
+	}, [id, products])
 
-	//console.log(product)
+	//onAdd
+	const [terminar, setTerminar] = useState(false)
+	const onAdd = () => {
+		setTerminar(true)
+	}
 
     return (
 	<>
 		<div className="container mt-2">
-			<ItemDetail producto={product} />
+			<ItemDetail product={productSelected} onAdd={onAdd} terminar={terminar} /> 
 		</div>
 	</>	
   )
