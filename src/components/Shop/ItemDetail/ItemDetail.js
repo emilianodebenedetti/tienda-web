@@ -12,14 +12,14 @@ export const ItemDetail = ({ product, terminar, onAdd }) => {
 
   return (
         <>
-			<div className="px-0 hero bg-base-300 ">
-				<div className="hero-content flex-col lg:flex-row card w-100">
+			<div className="  bg-base-300 ">
+				<div className=" hero-content flex-col lg:flex-row card ">
 					<img src={product.img} className="max-w-sm rounded-lg shadow-2xl" alt={`${product.category}`}/>
 					<div>
 						<h1 className="text-3xl font-bold">{product.category}</h1>
 						<h2 className="text-5xl font-bold">{product.name}</h2>
 						<p className="py-6">{product.description}</p>
-						<div className="inline-block align-bottom mr-5">
+						<div className="inline-block align-bottom ">
 							<span className=" text-5xl leading-none align-baseline">
 								US$ {product.price}
 							</span>

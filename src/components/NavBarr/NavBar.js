@@ -8,21 +8,21 @@ export const NavBar = () => {
     <div className="navbar bg-slate-300">
       <div className="flex-1">
         <Link className="navbar-brand" to="/">
-          <a className="btn  btn-ghost normal-case text-xl text-black">MiTienda</a>
+          <h2 className="btn btn-ghost normal-case text-xl text-black">MiTienda</h2>
         </Link>
       </div> 
 
       <div className="flex-none">
       
-        <div className="flex ">
-          <ul className="navbar-nav ">
-            <Link to="/category/indumentaria" className="nav-link px-8">
+        <div className="flex">
+          <ul className="navbar-nav">
+            <Link to="/category/Indumentaria" className="nav-link px-8">
               Indumentaria
             </Link>
-            <Link to="/category/calzado" className="nav-link px-8">
+            <Link to="/category/Calzado" className="nav-link px-8">
               Calzado
             </Link>
-            <Link to="/category/accesorios" className="nav-link px-8">
+            <Link to="/category/Accesorios" className="nav-link px-8">
               Accesorios
             </Link>
           </ul>

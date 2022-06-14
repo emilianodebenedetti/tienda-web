@@ -25,7 +25,8 @@ export const ItemDetailContainer = () => {
 
     return (
 	<>
-		<div className="container mt-2">
+		<div className="mt-4">
+			<div className='divider'>Detalle del producto</div>
 			<ItemDetail product={productSelected} onAdd={onAdd} terminar={terminar} /> 
 		</div>
 	</>	

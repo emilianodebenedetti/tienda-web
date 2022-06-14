@@ -15,15 +15,15 @@ const compradorInicial = {
 
 export const Cart = () => {
    
-   const { cart, deleteFromCart } = useCartContext()
+   const { cart, deleteCart } = useCartContext()
    const [comprador, setComprador] = useState(compradorInicial)
-   const vaciarLista = () => { deleteFromCart() } //usamos funcion anonima para no generar un render infinito
+   const vaciarLista = () => { deleteCart() } //usamos funcion anonima para no generar un render infinito
 
    cart.forEach((item) => {
       console.log(item)
    })
 
-   //meter en un const----------------------
+   //meter const----------------------
    let total = 0
 
    for (let i = 0; i < cart.length; i++) {
@@ -52,7 +52,7 @@ export const Cart = () => {
                })
             })
             .then(() => cart.forEach(item => actualizarStock(item.id, item.quantity)))
-            .then(() => deleteFromCart())
+            .then(() => deleteCart())
             .catch(
                (err) => new swal(`Hubo un error`, "Intenta de nuevo", "error")
             )
@@ -76,8 +76,8 @@ export const Cart = () => {
 
    return (
      <>
-         <div className="container">
-			<h1 className="p-3 mt-2 text-center">Bienvenido al Carrito!</h1>
+        <div className="grid grid-cols-1 content-center">
+			<h1 className="p-3 mt-2 divider">Carrito de compras</h1>
 			<hr />
 
 			<div className="">
@@ -93,7 +93,7 @@ export const Cart = () => {
 								/> 
 							))}
 							<div className="text-end m-3">
-								<button className="btn" onClick={deleteFromCart}>
+								<button className="btn" onClick={deleteCart}>
 									Limpiar Carrito
 								</button>
 							</div>
@@ -101,13 +101,13 @@ export const Cart = () => {
 					)}
 					{cart.length === 0 && (
 						<>
-							<h3>Parece que no hay productos en el carrito,</h3>
+							<br/>
+							<h3 className='text-center'>Aún no tienes productos en el carrito...</h3>
 							<Link
 								to="/"
-								className="btn bg-principal text-white d-block w-100 mt-3 fw-bolder fs-5"
+								className="grid content-center btn text-white d-block w-100 mt-3 "
 							>
-								Busquemos algunos{" "}
-								<i className="ps-3 fas fa-smile-wink fs-5"></i>
+								Busquemos algo!{" "}
 							</Link>
 						</>
 					)}
@@ -115,7 +115,7 @@ export const Cart = () => {
 				<div className="col-md-4">
 					{cart.length !== 0 && (
 						<>
-							<div className="card container">
+							<div className="card ">
 								<h2 className="mt-3 text-center">Resumen Carrito</h2>
 
 								{cart.map((prod) => (
@@ -128,7 +128,7 @@ export const Cart = () => {
 								<h3 className='text-center'>Total a pagar: ${total}</h3>
 
 								<hr />
-								<p className='text-center'>Completa con tus datos para finalizar la compra</p>
+								<p className='text-center'>Completa con tus datos para terminar tu pedido</p>
 								<form
 									onSubmit={handlerSubmit}
 									onChange={handlerChange}

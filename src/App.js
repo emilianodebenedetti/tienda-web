@@ -4,7 +4,7 @@ import AppContextProvider from './components/context/AppContext';
 import CartContextProvider from './components/context/CartContext';
 import Footer from './components/footer/Footer';
 import Cart from './components/NavBarr/CartWidgt/Cart';
-import CartView from './components/NavBarr/CartWidgt/CartView';
+/* import CartView from './components/NavBarr/CartWidgt/CartView'; */
 import NavBar from './components/NavBarr/NavBar';
 /* import ProductDetail from './components/Shop/firebase/ProductDetail'; */
 /* import ItemCount from './components/Shop/ItemCount/ItemCount';  */
@@ -18,28 +18,19 @@ function App() {
     <>
       <AppContextProvider>
         <CartContextProvider>
-            <BrowserRouter>
-              <NavBar/>
+          <BrowserRouter>
+            <NavBar />
               <Routes>
-                <Route 
-                  exact path="/" 
-                  element={<ItemListContainer/>}
-                  />
+                <Route exact path="/" element={<ItemListContainer/>}/>
                 <Route 
                   path="/category/:categoryId" 
-                  element={<ItemListContainer/>} 
-                  />
-                <Route 
-                  path="/item/:id" 
-                  element={<ItemDetailContainer/>} 
-                  />
-                <Route 
-                  path="/cart" 
-                  element={<Cart/>}
-                  />
+                  element={<ItemListContainer />} 
+                />
+                <Route path="/item/:id" element={<ItemDetailContainer/>} />
+                <Route path="/cart" element={<Cart/>}/>
               </Routes>
-              <Footer/>
-            </BrowserRouter>
+            <Footer/>
+          </BrowserRouter>
         </CartContextProvider>
       </AppContextProvider>
     </>

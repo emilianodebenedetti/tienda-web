@@ -17,7 +17,7 @@ const AppContextProvider = ({ children }) => {
         })
       )
       .then(() => setProducts(firestoreProducts)) 
-  }, [])
+  }, [2000])
   console.log(products)
     
   return (

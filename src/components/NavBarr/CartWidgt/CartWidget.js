@@ -17,7 +17,12 @@ export const CartWidget = ({ prod }) => {   //sacar prod
                 </div>
             </label>
             <div className="mt-3 card card-compact dropdown-content w-52 bg-slate-300 shadow">
-                  
+                {/* <div className="card-body">
+                    <span className="font-bold text-lg text-black"> 
+                        
+                    </span>                    
+                    //Imprimir minilista de productos por aqui
+                </div> */}  
             </div>
         </div>
     )

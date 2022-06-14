@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import { useAppContext } from '../../context/AppContext';
-import Loader from '../../Loader'; 
+import Loader from '../../Loader';  
 import ItemList from './ItemList';
 
 export const ItemListContainer = () => {
@@ -23,9 +23,10 @@ export const ItemListContainer = () => {
   
 	
 	return (
-		<>
+		<>			
 			<div className='divider'>Nuestros productos</div>
-			<ItemList products={productsCategory}/>
+			<ItemList products={productsCategory}/>   
+			
 		</>
 	)
   
@@ -33,7 +34,3 @@ export const ItemListContainer = () => {
 }
 
 export default ItemListContainer
-{/* { Loader 
-				? <Loader/> 
-				: <ItemList products={productsCategory}/>
-			} */}
