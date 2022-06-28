@@ -17,7 +17,6 @@ export const ItemDetailContainer = () => {
 		)
 	}, [id, products])
 
-	//onAdd
 	const [terminar, setTerminar] = useState(false)
 	const onAdd = () => {
 		setTerminar(true)

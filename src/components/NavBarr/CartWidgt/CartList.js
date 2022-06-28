@@ -6,7 +6,7 @@ export default function CartList( { product } ) {
   return (
     <>
       <div className='px-10 pt-5'>
-        <div className="alert shadow-lg">
+        <div className="alert shadow-lg bg-cream text-black">
           <div>
              <img src={product.img} className='stroke-info flex-shrink-0 w-10 h-auto'></img>  
             <div>

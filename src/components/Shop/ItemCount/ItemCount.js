@@ -38,28 +38,30 @@ export const ItemCount = ({ initial, product, stock, onAdd, id }) => {
    
    return (
     <>
-        <div className="d-flex flex-column ">
-			<div className="btns-count w-32 p-2 m-auto">
-				<button className="btn btn-block" onClick={addHandler}>
-					<i className="fas fa-plus">+</i>
-				</button>
-				
-				<label className="alert alert-white cantidad-items justify-center">{cantidad}</label>
+        <div className="d-flex flex-column">
+			<div className="btns-count w-10 md:w-12 lg:w-14 py-2 m-auto flex flex-column justify-center">
 				
 				<button className="btn btn-block" onClick={restHandler}>
 					<i className="fas fa-minus">-</i>
 				</button>
 				
+				<label className="w-40 alert alert-white justify-center">{cantidad}</label>
+				
+				<button className="btn btn-block" onClick={addHandler}>
+					<i className="fas fa-plus">+</i>
+				</button>
+				
+				
 			</div>
 
-			<div className="agreg-carrito">
+			<div className="">
 				<button
-					className="btn bg-primary text-white btn-block "
+					className="btn bg-orange text-white btn-block "
 					onClick={() => handleClick(product.id, cantidad)}
 				>
 					Agregar al Carro
-					</button>
-				</div>
+				</button>
+			</div>
 		</div> 
     </>
   )

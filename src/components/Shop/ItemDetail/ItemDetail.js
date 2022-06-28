@@ -12,22 +12,21 @@ export const ItemDetail = ({ product, terminar, onAdd }) => {
 
   return (
         <>
-			<div className="  bg-base-300 ">
-				<div className=" hero-content flex-col lg:flex-row card ">
-					<img src={product.img} className="max-w-sm rounded-lg shadow-2xl" alt={`${product.category}`}/>
+			<div className="bg-cream text-black">
+				<div className="hero-content flex-row lg:flex-row md:flex-row card ">
+					<img src={product.img} className="lg:w-96 md:w-80 w-56  rounded-lg shadow-2xl" alt={`${product.category}`}/>
 					<div>
-						<h1 className="text-3xl font-bold">{product.category}</h1>
-						<h2 className="text-5xl font-bold">{product.name}</h2>
-						<p className="py-6">{product.description}</p>
+						<h2 className="text-3xl lg:text-5xl font-bold pl-6">{product.name}</h2>
+						<p className="py-1 md:py-6 pl-6">'{product.description}'</p>
 						<div className="inline-block align-bottom ">
-							<span className=" text-5xl leading-none align-baseline">
+							<span className="text-2xl lg:text-3xl leading-none align-baseline pl-6">
 								US$ {product.price}
 							</span>
 							{terminar ? (
 								<>
 									<Link
 										to="/cart"
-										className="btn bg-primary text-white btn-block "
+										className="btn bg-orange text-white btn-block"
 										>
 										Terminar Compra
 									</Link>

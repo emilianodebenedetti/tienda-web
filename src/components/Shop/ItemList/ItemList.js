@@ -5,7 +5,7 @@ export const ItemList = ({ products }) => {
 
   return (
     <>
-      <div className="mx-auto flex flex-wrap gap-3 justify-center"> {/*  */}
+      <div className="flex flex-wrap gap-4 justify-center text-black bg-white">{/* cambiar fondo a color crema */}
         {products.map((product) => (
                 <Item 
                   id={product.id}

@@ -17,13 +17,12 @@ export const Cart = () => {
    
    const { cart, deleteCart } = useCartContext()
    const [comprador, setComprador] = useState(compradorInicial)
-   const vaciarLista = () => { deleteCart() } //usamos funcion anonima para no generar un render infinito
+   const vaciarLista = () => { deleteCart() } 
 
    cart.forEach((item) => {
       console.log(item)
    })
 
-   //meter const----------------------
    let total = 0
 
    for (let i = 0; i < cart.length; i++) {
@@ -31,7 +30,7 @@ export const Cart = () => {
 
       total += price
    }
-   //---------------------------------------
+
 
    const orden = {
       comprador,
@@ -58,7 +57,7 @@ export const Cart = () => {
             )
       } else {
         new swal({
-            title:"Hubo un error en tus datos",
+            title:"Error",
             text: "Completa el formulario con tus datos para continuar",
             icon: "error",
             button: "Ok",
@@ -76,7 +75,7 @@ export const Cart = () => {
 
    return (
      <>
-        <div className="grid grid-cols-1 content-center">
+        <div className="grid grid-cols-1 content-center bg-white">
 			<h1 className="p-3 mt-2 divider">Carrito de compras</h1>
 			<hr />
 
@@ -93,7 +92,7 @@ export const Cart = () => {
 								/> 
 							))}
 							<div className="text-end m-3">
-								<button className="btn" onClick={deleteCart}>
+								<button className="btn btn-error" onClick={deleteCart}>
 									Limpiar Carrito
 								</button>
 							</div>
@@ -105,7 +104,7 @@ export const Cart = () => {
 							<h3 className='text-center'>Aún no tienes productos en el carrito...</h3>
 							<Link
 								to="/"
-								className="grid content-center btn text-white d-block w-100 mt-3 "
+								className="grid content-center btn text-white d-block w-96 mx-auto mt-3 bg-orange"
 							>
 								Busquemos algo!{" "}
 							</Link>
@@ -128,38 +127,41 @@ export const Cart = () => {
 								<h3 className='text-center'>Total a pagar: ${total}</h3>
 
 								<hr />
-								<p className='text-center'>Completa con tus datos para terminar tu pedido</p>
+								<div class="mx-auto lg:mx-auto md:mx-auto lg:mx-auto mt-8 flex flex-col justify-center phone-3 bg-cream shadow-lg rounded-2xl">{/* cambiar a beige */}
+								<h2 className='text-center text-black text-xl p-10'>Completa con tus datos para terminar tu pedido!</h2>
 								<form
 									onSubmit={handlerSubmit}
 									onChange={handlerChange}
-									className="flex flex-col justify-center mt-2 mb-3 mx-48 "
+									className="flex flex-col justify-center mb-3 mx-8 "
 								>
-									<input
-										className="mb-2 text-center"
-										type="text"
-										placeholder="Nombre"
+									<input 
+										type="text" 
+										placeholder="Nombre" 
 										name="name"
 										value={orden.name}
+										class="w-full mx-auto px-auto mb-2 text-center input input-bordered input-orange w-full max-w-xl bg-white" /* cambiar bg de todos los input e input-orange*/
 									/>
-									<input
-										className="form-control mb-2 text-center"
-										type="number"
-										placeholder="Telefono"
+									<input 
+										type="number" 
+										placeholder="Teléfono / Cel" 
 										name="phone"
 										value={orden.phone}
+										class="w-full mx-auto mb-2 text-center input input-bordered input-orange w-full max-w-xl bg-white" 
 									/>
-									<input
-										className="form-control mb-2 text-center"
-										type="email"
-										placeholder="Email"
+									<input 
+										type="email" 
+										placeholder="Email" 
 										name="email"
 										value={orden.email}
+										class="w-full mx-auto mb-2 text-center input input-bordered input-orange w-full max-w-xl bg-white" 
 									/>
+									
 
-									<button className="btn btn-success d-block mt-2">
+									<button className="mx-auto w-full btn d-block mt-2 bg-orange text-black">
 										Enviar orden
 									</button>
-								</form>
+								</form>									
+								</div> 
 							</div>
 						</>
 					)}
