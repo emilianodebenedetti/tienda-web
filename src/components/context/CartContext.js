@@ -1,19 +1,16 @@
 import  { createContext, useContext, useState } from "react"
 
 
-const CartContext = createContext() //contexto creado
+const CartContext = createContext() 
 
 export const useCartContext = () => useContext(CartContext)
 
-//proveedor
+
 const CartContextProvider = ({ children }) => {
-    //logica
     const[cart, setCart] = useState([])
 
-    //validar si esta el item en el carrito
     const isInCart = (id) => cart.find((prod) => prod.id === id) //id sea igual al id que recibimos, los compara
 
-    //Agregar item al carro
     const addToCart = (prod, cantidad) => {
         const newCart = [...cart]
 
@@ -53,7 +50,7 @@ const CartContextProvider = ({ children }) => {
   
   
     return (
-        <CartContext.Provider                    //value, que valores queremos exportar(carrito, products)
+        <CartContext.Provider                    
             value={{
                 cart,
                 addToCart,

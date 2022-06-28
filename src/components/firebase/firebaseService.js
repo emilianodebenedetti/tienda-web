@@ -49,7 +49,6 @@ export const generarOrden = async(orden) => {
 export const actualizarStock = async (itemId, quantity) => {
   const item = await getDoc(doc(db, "items", itemId))
   await updateDoc(doc(doc, "items", itemId), {
-    //stock: item.stock - quantity,  //da error, el item no esta parseado
     stock: item.data().stock - quantity,
   })
 }

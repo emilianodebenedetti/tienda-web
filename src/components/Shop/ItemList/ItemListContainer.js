@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import { useAppContext } from '../../context/AppContext';
-import Loader from '../../Loader';  
 import ItemList from './ItemList';
 
 export const ItemListContainer = () => {
