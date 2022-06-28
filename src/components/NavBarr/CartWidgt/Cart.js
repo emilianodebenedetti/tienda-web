@@ -75,7 +75,7 @@ export const Cart = () => {
 
    return (
      <>
-        <div className="grid grid-cols-1 content-center bg-white">
+        <div className="grid grid-cols-1 content-center bg-white h-full">
 			<h1 className="p-3 mt-2 divider">Carrito de compras</h1>
 			<hr />
 
@@ -99,16 +99,17 @@ export const Cart = () => {
 						</>
 					)}
 					{cart.length === 0 && (
-						<>
+						<div className='h-96'>
 							<br/>
 							<h3 className='text-center'>Aún no tienes productos en el carrito...</h3>
 							<Link
 								to="/"
-								className="grid content-center btn text-white d-block w-96 mx-auto mt-3 bg-orange"
+								className="grid content-center btn text-white d-block w-96 mx-auto mt-4 bg-orange"
 							>
 								Busquemos algo!{" "}
 							</Link>
-						</>
+							
+						</div>
 					)}
 				</div>
 				<div className="col-md-4">

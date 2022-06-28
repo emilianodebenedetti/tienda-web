@@ -39,7 +39,7 @@ export const ItemCount = ({ initial, product, stock, onAdd, id }) => {
    return (
     <>
         <div className="d-flex flex-column">
-			<div className="btns-count w-10 md:w-12 lg:w-14 py-2 m-auto flex flex-column justify-center">
+			<div className="btns-count gap-1 w-10 md:w-12 lg:w-14 py-2 m-auto flex flex-column justify-center">
 				
 				<button className="btn btn-block" onClick={restHandler}>
 					<i className="fas fa-minus">-</i>
