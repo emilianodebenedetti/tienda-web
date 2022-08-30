@@ -30,7 +30,7 @@ export const Item = ({ name, price, img, description, id }) => {
                             Ver mas
                         </Link>
                         
-                        <h3 className='card-subtitle'>US$ {price}</h3>
+                        <h3 className='card-subtitle'>USD {price}</h3>
 
                     </div>
                 </div>
