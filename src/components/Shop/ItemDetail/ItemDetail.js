@@ -11,7 +11,7 @@ export const ItemDetail = ({ product, terminar, onAdd }) => {
   return (
         <>
 			
-			<div className="hero-content grid place-content-center md:mx-auto lg:mx-auto sm:grid-cols-1 lg:grid-cols-2 flex-row lg:flex-row md:grid-cols-2 bg-white rounded text-black ">{/* hero-content flex-row text-black lg:flex-row md:flex-row card bg-white rounded */}
+			<div className="hero-content grid place-content-center md:mx-auto lg:mx-auto sm:grid-cols-1 lg:grid-cols-2 flex-row lg:flex-row md:grid-cols-2 bg-white rounded text-black ">
 					{/* Pensar función de map para array imagen} */}
 					{/* <img src={product.imagen} className=" lg:w-96 md:w-80 w-56 rounded-lg shadow-2xl" alt={`${product.category}`}/> */}
 					<SwiperArticulo 
