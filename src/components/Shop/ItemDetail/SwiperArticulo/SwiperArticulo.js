@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -9,8 +9,8 @@ import "swiper/css/thumbs";
 
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
-export const SwiperArticulo = ({ product, imagen }) => { /* img1, img2, img3, img4 */
-    const [thumbsSwiper, setThumbsSwiper] = useState("");
+export const SwiperArticulo = ({  imagen }) => { 
+    /* const [thumbsSwiper, setThumbsSwiper] = useState(""); */
 
   return (
     <>
@@ -21,22 +21,22 @@ export const SwiperArticulo = ({ product, imagen }) => { /* img1, img2, img3, im
           }}
           spaceBetween={10}
           navigation={true}
-          thumbs={{ swiper: thumbsSwiper }}
+          /* thumbs={{ swiper: thumbsSwiper }} */
           modules={[FreeMode, Navigation, Thumbs]}
           className="mySwiper2 lg:w-96 md:w-80 w-56 rounded-lg shadow-2xl"
         >
           {imagen ?
-            <SwiperSlide><img src={imagen[0]}/></SwiperSlide>
+            <SwiperSlide><img src={imagen[0]} alt='Imagen Articulo'/></SwiperSlide>
             :
             <></>
           }
           {imagen ?
-            <SwiperSlide><img src={imagen[1]}/></SwiperSlide>
+            <SwiperSlide><img src={imagen[1]} alt='Imagen Articulo'/></SwiperSlide>
             :
             <></>
           }
           {imagen ?
-            <SwiperSlide><img src={imagen[2]}/></SwiperSlide>
+            <SwiperSlide><img src={imagen[2]} alt='Imagen Articulo'/></SwiperSlide>
             :
             <></>
           }

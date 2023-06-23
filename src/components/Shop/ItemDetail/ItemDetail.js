@@ -1,11 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import SwiperArticulo from './SwiperArticulo/SwiperArticulo';
 
-
-
-/* probar ingresando las imagenes individualmente (mala práctica) */
 export const ItemDetail = ({ product, terminar, onAdd }) => {
 	console.log(product)
 	console.log(terminar) 
@@ -19,6 +16,7 @@ export const ItemDetail = ({ product, terminar, onAdd }) => {
 					{/* <img src={product.imagen} className=" lg:w-96 md:w-80 w-56 rounded-lg shadow-2xl" alt={`${product.category}`}/> */}
 					<SwiperArticulo 
 						imagen={product.imagen}
+						className="lg:w-96 md:w-80 w-56 rounded-lg shadow-2xl"
 					/>
 					<div className=''>
 						<h2 className="text-3xl lg:text-5xl font-bold">{product.nombre}</h2>{/* {product.name} */}
