@@ -10,22 +10,18 @@ export const ItemListContainer = () => {
 
 	const { categoryId } = useParams()
 
-	
-
 	useEffect(() => {
 		!categoryId 
 			? setProductsCategory(products) 
 			: setProductsCategory(
-				products.filter((product) => product.category === categoryId)
+				products.filter((product) => product.categoria === categoryId)
 				)
 	}, [categoryId, products])
   
 	
 	return (
 		<>			
-			<div className='divider'>Nuestros productos</div>
-			<ItemList products={productsCategory}/>   
-			
+			<ItemList products={productsCategory}/>   			
 		</>
 	)
   

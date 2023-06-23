@@ -7,13 +7,15 @@ export const useAppContext = () => useContext(AppContext)
 
 const AppContextProvider = ({ children }) => {
   const [products, setProducts] = useState([])
-    
+
+  /* const URL = getItems() */
+      
   useEffect(() => {
     let firestoreProducts = []
     getItems()
       .then((res) => 
         res.docs.forEach((doc) => {
-          firestoreProducts.push({ ... doc.data(), id: doc.id, })                        //.data para traducir la info de firebase
+          firestoreProducts.push({ ...doc.data(), id: doc.id, })                        //.data para traducir la info de firebase
         })
       )
       .then(() => setProducts(firestoreProducts)) 

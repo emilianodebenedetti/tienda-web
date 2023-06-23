@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
 import AppContextProvider from './components/context/AppContext';
-import CartContextProvider from './components/context/CartContext';
+/* import CartContextProvider from './components/context/CartContext';
 import Footer from './components/footer/Footer';
-import Cart from './components/NavBarr/CartWidgt/Cart';
+import Cart from './components/NavBarr/CartWidgt/Cart'; */
 import NavBar from './components/NavBarr/NavBar';
-import ItemDetailContainer from './components/Shop/ItemDetail/ItemDetailContainer';
-import ItemListContainer from './components/Shop/ItemList/ItemListContainer';
+/* import ItemDetailContainer from './components/Shop/ItemDetail/ItemDetailContainer';
+import ItemListContainer from './components/Shop/ItemList/ItemListContainer'; */
+import React from 'react';
+import CartContextProvider from './components/context/CartContext';
 
 
 
@@ -15,6 +16,18 @@ function App() {
     <>
       <AppContextProvider>
         <CartContextProvider>
+          <BrowserRouter>
+            <NavBar/>
+          </BrowserRouter>
+        </CartContextProvider>
+      </AppContextProvider>
+    </>
+  );
+}
+
+export default App;
+/* 
+<CartContextProvider>
           <BrowserRouter>
             <NavBar />
               <Routes>
@@ -29,9 +42,4 @@ function App() {
             <Footer/>
           </BrowserRouter>
         </CartContextProvider>
-      </AppContextProvider>
-    </>
-  );
-}
-
-export default App;
+*/

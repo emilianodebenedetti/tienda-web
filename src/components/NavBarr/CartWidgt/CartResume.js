@@ -3,8 +3,8 @@ import React from 'react'
 export const CartResume = ({ product }) => {
   return (
     <>
-        <div className='text-end text-center '>
-            <h4>{product.name} X {product.quantity} : $ {product.price * product.quantity}</h4>
+        <div className='text-center'>
+            <h4>{product.nombre} X {product.quantity} : $ {product.precio * product.quantity}</h4>
             <hr />
         </div>
     </>

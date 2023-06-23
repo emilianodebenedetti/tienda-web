@@ -7,6 +7,7 @@ import swal from 'sweetalert'
 import { Link } from 'react-router-dom'
 import CartResume from './CartResume'
 
+
 const compradorInicial = {
    name: "",
    phone: "",
@@ -26,7 +27,7 @@ export const Cart = () => {
    let total = 0
 
    for (let i = 0; i < cart.length; i++) {
-      const price = cart[i].price * cart[i].quantity
+      const price = cart[i].precio * cart[i].quantity
 
       total += price
    }
@@ -75,8 +76,8 @@ export const Cart = () => {
 
    return (
      <>
-        <div className="grid grid-cols-1 content-center bg-white h-full">
-			<h1 className="p-3 mt-2 divider">Carrito de compras</h1>
+        <div className="grid grid-cols-1 content-center h-full">
+			<h1 className="mt-2 divider py-8">Carrito de compras</h1>
 			<hr />
 
 			<div className="">
@@ -115,7 +116,7 @@ export const Cart = () => {
 				<div className="col-md-4">
 					{cart.length !== 0 && (
 						<>
-							<div className="card ">
+							<div className="card">
 								<h2 className="mt-3 text-center">Resumen Carrito</h2>
 
 								{cart.map((prod) => (
@@ -127,10 +128,12 @@ export const Cart = () => {
 
 								<h3 className='text-center'>Total a pagar: ${total}</h3>
 
-								<hr />
-								<div class="mx-auto lg:mx-auto md:mx-auto lg:mx-auto mt-8 flex flex-col justify-center phone-3 bg-cream shadow-lg rounded-2xl">{/* cambiar a beige */}
+								<hr/>
+								<button className="mx-auto btn d-block mt-2 bg-greyBtn text-grey">Comprar via Whatsapp</button>
+				
+								{/*<div class="mx-auto lg:mx-auto md:mx-auto lg:mx-auto mt-8 flex flex-col justify-center phone-3 bg-cream shadow-lg rounded-2xl">
 								<h2 className='text-center text-black text-xl p-10'>Completa con tus datos para terminar tu pedido!</h2>
-								<form
+								 <form
 									onSubmit={handlerSubmit}
 									onChange={handlerChange}
 									className="flex flex-col justify-center mb-3 mx-8 "
@@ -140,7 +143,7 @@ export const Cart = () => {
 										placeholder="Nombre" 
 										name="name"
 										value={orden.name}
-										class="w-full mx-auto px-auto mb-2 text-center input input-bordered input-orange w-full max-w-xl bg-white" /* cambiar bg de todos los input e input-orange*/
+										class="w-full mx-auto px-auto mb-2 text-center input input-bordered input-orange w-full max-w-xl bg-white" 
 									/>
 									<input 
 										type="number" 
@@ -161,8 +164,8 @@ export const Cart = () => {
 									<button className="mx-auto w-full btn d-block mt-2 bg-orange text-black">
 										Enviar orden
 									</button>
-								</form>									
-								</div> 
+								</form> 
+								</div>*/};
 							</div>
 						</>
 					)}

@@ -5,17 +5,17 @@ export default function CartList( { product } ) {
   
   return (
     <>
-      <div className='px-10 pt-5'>
-        <div className="alert shadow-lg bg-cream text-black">
+      <div className='mx-28 pt-5'>
+        <div className="alert shadow-lg bg-white text-black">
           <div>
-             <img src={product.img} className='stroke-info flex-shrink-0 w-10 h-auto'></img>  
+             <img src={product.imagen} className='stroke-info flex-shrink-0 w-10 h-auto rounded'></img>  {/* {product.img} */}
             <div>
-              <h3 className="font-bold">{product.name}</h3>
+              <h3 className="font-bold">{product.nombre}</h3>{/* {product.name} */}
               <div className="text-xs">Cantidad: {product.quantity}</div>
             </div>
           </div>
           <div className="flex-none">
-            <span> US$ {product.price * product.quantity} </span>
+            <span> $ {product.precio * product.quantity} </span>
           </div>
         </div>
       </div>

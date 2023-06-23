@@ -2,7 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { initializeApp } from "firebase/app";
+/* import { configMySQL } from './options/config';
+import {ClienteSql} from './options/sql'; */
+
+/* const knex = require('knex')({
+  client: 'mysql',
+  connection: {
+      host : '127.0.0.1',
+      port: '3306',
+      user : 'root',
+      password : '',
+      database: 'articulos'
+    },
+  }  
+);
+
+
+
+const sql = new ClienteSql(options)
+
+sql.mostrarTabla()
+  .then (() => {
+    console.log(sql.articulos)
+  })
+ */
+
+
+
+
+/* import { initializeApp } from "firebase/app"; */
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -23,7 +51,9 @@ import { initializeApp } from "firebase/app";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <HashRouter> */}
+      <App />
+    {/* </HashRouter> */}
   </React.StrictMode>
 );
 

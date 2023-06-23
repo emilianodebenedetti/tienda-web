@@ -1,9 +1,9 @@
-
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppContext } from '../../context/AppContext'
 import { getItem } from '../../firebase/firebaseService'
 import  ItemDetail  from './ItemDetail'
+import React from 'react'
 
 export const ItemDetailContainer = () => {
   
@@ -24,8 +24,8 @@ export const ItemDetailContainer = () => {
 
     return (
 	<>
-		<div className="mt-4">
-			<div className='divider'>Detalle del producto</div>
+		<div className="mt-4 py-auto">
+			<div className='divider py-auto'>Detalle del producto</div>
 			<ItemDetail product={productSelected} onAdd={onAdd} terminar={terminar} /> 
 		</div>
 	</>	
