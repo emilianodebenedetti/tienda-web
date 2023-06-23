@@ -9,7 +9,7 @@ import "swiper/css/thumbs";
 
 import { FreeMode, Navigation, Thumbs } from "swiper";
 
-export const SwiperArticulo = ({ img, img1, img2, img3, img4 }) => { /* img1, img2, img3, img4 */
+export const SwiperArticulo = ({ product, imagen }) => { /* img1, img2, img3, img4 */
     const [thumbsSwiper, setThumbsSwiper] = useState("");
 
   return (
@@ -25,12 +25,28 @@ export const SwiperArticulo = ({ img, img1, img2, img3, img4 }) => { /* img1, im
           modules={[FreeMode, Navigation, Thumbs]}
           className="mySwiper2 lg:w-96 md:w-80 w-56 rounded-lg shadow-2xl"
         >
-          <SwiperSlide>    
+          {imagen ?
+            <SwiperSlide><img src={imagen[0]}/></SwiperSlide>
+            :
+            <></>
+          }
+          {imagen ?
+            <SwiperSlide><img src={imagen[1]}/></SwiperSlide>
+            :
+            <></>
+          }
+          {imagen ?
+            <SwiperSlide><img src={imagen[2]}/></SwiperSlide>
+            :
+            <></>
+          }
+
+          {/* {product.imagen.map((img) => {
+					  <SwiperSlide><img src={img}/></SwiperSlide>
+					})} */}
+         {/*  <SwiperSlide>    
             <img src={img} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src={img1} />
-          </SwiperSlide>
+          </SwiperSlide> */}
       </Swiper>
       {/* <Swiper
         onSwiper={setThumbsSwiper}
