@@ -9,7 +9,7 @@ export const ItemCount = ({ initial, product, stock, onAdd, id }) => {
 	const { addToCart } = useCartContext()
 	const { products } = useAppContext()
 
-    const addHandler = () => {      
+    /* const addHandler = () => {      
         if (cantidad < stock) {
             setCantidad(cantidad + 1) 
         }
@@ -19,7 +19,7 @@ export const ItemCount = ({ initial, product, stock, onAdd, id }) => {
         if (cantidad > initial) {
             setCantidad(cantidad - 1) 
         }                      
-    }
+    } */
 
 
 	const handleClick = (id, cantidad) => {
