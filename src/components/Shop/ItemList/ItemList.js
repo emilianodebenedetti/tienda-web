@@ -6,7 +6,7 @@ export const ItemList = ({ products }) => {
 
   return (
     <>
-      <div className="flex flex-wrap gap-4 justify-center text-black">
+      <div className="relative flex flex-wrap gap-4 justify-center text-black">
         <CarouselHome/>
         {/* <h2 className='text-center'>NUESTROS ARTÍCULOS</h2> */}
         {products.map((product) => (
@@ -16,6 +16,7 @@ export const ItemList = ({ products }) => {
                   stock={product.stock}/* stock */
                   desription={product.descripcion}/* description */
                   precio={product.precio}/* price */
+                  color={product.color}
                   imagen={product.imagen}/* img */
                   key={product.id} 
                 />

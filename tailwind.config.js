@@ -4,13 +4,13 @@ module.exports = {
     extend: {},
     colors: {
       green: '#77dd77',
-      grey: '#e8e8e8',
+      grey1: '#e8e8e8',
       greyBtn: '#2b2929',
-      cream:'#b39377',
       white: '#fffbeb',
       black: '#080707',
       red: '#b01717',
     }
+    
   },
   plugins: [require("daisyui")],
 }

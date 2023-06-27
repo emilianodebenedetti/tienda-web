@@ -30,6 +30,10 @@ export const getItems = async() => {
     const item = await getDocs(collection(db, "articulos"))
     return item
 }
+export const getImages = async() => {
+  const imagen = await getDocs(collection(db, "articulos"))
+  return imagen
+}
 
 //Traer un ITEM
 export const getItem = async(id) => {

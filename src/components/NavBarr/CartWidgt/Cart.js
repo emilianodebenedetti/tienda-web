@@ -7,7 +7,6 @@ import swal from 'sweetalert'
 import { Link } from 'react-router-dom'
 import CartResume from './CartResume'
 
-
 const compradorInicial = {
    name: "",
    phone: "",

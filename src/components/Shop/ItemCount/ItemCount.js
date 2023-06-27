@@ -11,7 +11,7 @@ export const ItemCount = ({ initial, product, stock, onAdd, id }) => {
 
     /* const addHandler = () => {      
         if (cantidad < stock) {
-            setCantidad(cantidad + 1) 
+            setCantidad(cantidad + 1)
         }
     }
 
@@ -53,10 +53,10 @@ export const ItemCount = ({ initial, product, stock, onAdd, id }) => {
 				
 				
 			</div>
-			<div>Talle {product.talle}</div>
+			
 		
 			<button
-				className="btn bg-greyBtn text-white btn-block rounded"
+				className="static bottom-0 mb-0 btn bg-greyBtn text-white btn-block rounded"
 				onClick={() => handleClick(product.id, cantidad)}
 			>
 				Agregar al Carro

@@ -19,14 +19,16 @@
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^5.0.1",
+    "sass": "^1.63.6",
     "stream": "^0.0.2",
     "stream-browserify": "^3.0.0",
     "sweetalert": "^2.1.2",
-    "swiper": "^9.4.0",
+    "swiper": "^9.4.1",
     "timers-browserify": "^2.0.12",
     "url": "^0.11.0",
     "util": "^0.12.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "whatsapp-web.js": "^1.21.0"
   },
   "scripts": {
     "start": "react-scripts start",

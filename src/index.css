@@ -9,7 +9,19 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
+  background: #e8e8e8;
+}
 
+.same-height-img {
+  max-height: 400px;
+  min-height: 350px;
+  width: 'cover-content';
+}
+.swiper-image {
+  width: 320px;
+  height: auto;
+  max-height: 480px;
+ /* Opcional, ajusta la imagen dentro del contenedor */
 }
 
 code {

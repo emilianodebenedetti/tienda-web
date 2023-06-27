@@ -1,37 +1,41 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
-import { getItems } from '../firebase/firebaseService'
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { getImages, getItems } from '../firebase/firebaseService';
+import { Firestore, collection, getFirestore } from 'firebase/firestore';
 
-const AppContext = createContext()
- 
-export const useAppContext = () => useContext(AppContext)
+
+/*{const articulosRef = collection(getFirestore(), 'articulos')}*/
+
+const AppContext = createContext();
+
+export const useAppContext = () => useContext(AppContext);
 
 const AppContextProvider = ({ children }) => {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
+  /*{const [imagenes, setImagenes] = useState([]);}*/
 
-  /* const URL = getItems() */
-      
   useEffect(() => {
-    let firestoreProducts = []
+
+    let firestoreProducts = [];
     getItems()
-      .then((res) => 
+      .then((res) =>
         res.docs.forEach((doc) => {
-          firestoreProducts.push({ ...doc.data(), id: doc.id, })                        //.data para traducir la info de firebase
+          firestoreProducts.push({ ...doc.data(), id: doc.id, });
         })
       )
-      .then(() => setProducts(firestoreProducts)) 
-  }, [])
-  console.log(products)
-    
+      .then(() => setProducts(firestoreProducts));
+
+    console.log(products);
+  }, []);
+
   return (
-    <AppContext.Provider 
+    <AppContext.Provider
       value={{
         products,
       }}
     >
       {children}
     </AppContext.Provider>
-  )
-    
-}
+  );
+};
 
-export default AppContextProvider
+export default AppContextProvider;
