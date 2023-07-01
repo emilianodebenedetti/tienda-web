@@ -8,7 +8,7 @@ import React from 'react'
 export const ItemDetailContainer = () => {
   
     const { products } = useAppContext()
-	const [  productSelected, setProductSelected ] = useState({})
+	const [ productSelected, setProductSelected ] = useState({})
 	const { id } = useParams()
 
 	useEffect(() => {

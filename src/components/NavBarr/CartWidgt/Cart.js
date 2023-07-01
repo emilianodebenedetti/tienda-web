@@ -1,180 +1,164 @@
-import React from 'react'
-import { useState } from "react"
-import { useCartContext } from '../../context/CartContext'
-import CartList from './CartList'
-import { actualizarStock, generarOrden  } from "../../firebase/firebaseService"
-import swal from 'sweetalert'
-import { Link } from 'react-router-dom'
-import CartResume from './CartResume'
+import React, { useState } from 'react';
+import { useCartContext } from '../../context/CartContext';
+import CartList from './CartList';
+import { actualizarStock, generarOrden } from '../../firebase/firebaseService';
+import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
+import CartResume from './CartResume';
+
 
 const compradorInicial = {
-   name: "",
-   phone: "",
-   email: "",
-}
+	name: '',
+	phone: '',
+	email: '',
+};
 
 export const Cart = () => {
-   
-   const { cart, deleteCart } = useCartContext()
-   const [comprador, setComprador] = useState(compradorInicial)
-   const vaciarLista = () => { deleteCart() } 
 
-   cart.forEach((item) => {
-      console.log(item)
-   })
+	const { cart, deleteCart } = useCartContext(); // Acceder al estado y las funciones del contexto
+	const [comprador, setComprador] = useState(compradorInicial);
+	const vaciarLista = () => {
+		deleteCart();
+	};
 
-   let total = 0
+	cart.forEach((item) => {
+		console.log(item)
+	});
 
-   for (let i = 0; i < cart.length; i++) {
-      const price = cart[i].precio * cart[i].quantity
+	let total = 0;
 
-      total += price
-   }
+	for (let i = 0; i < cart.length; i++) {
+		const price = cart[i].precio * cart[i].quantity;
+		total += price;
+	}
 
+	const generateMessageContent = () => {
+		let content = '¡Hola! Me gustaría realizar una orden de compra:\n';
 
-   const orden = {
-      comprador,
-      item: cart,
-      total,
-   }
+		cart.forEach((product) => {
+			content += `${product.nombre}, Talle: ${product.selectedTalle}, Color ${product.color}, Valor : $ ${product.precio}\n`;
+		});
 
-   const handlerSubmit = (e) => {
-      e.preventDefault()
-      if(comprador.name !== "" && comprador.phone !== "" && comprador.email !== "") {
-         generarOrden(orden)
-            .then((res) => {
-               new swal ({
-                  title:"Orden recibida con éxito!",
-                  text: `Nº de orden: ${res.id}`,
-                  icon: "success",
-                  button: "Ok",
-               })
-            })
-            .then(() => cart.forEach(item => actualizarStock(item.id, item.quantity)))
-            .then(() => deleteCart())
-            .catch(
-               (err) => new swal(`Hubo un error`, "Intenta de nuevo", "error")
-            )
-      } else {
-        new swal({
-            title:"Error",
-            text: "Completa el formulario con tus datos para continuar",
-            icon: "error",
-            button: "Ok",
-        })
-      }
-   }
+		return content;
+	};
 
-   const handlerChange = (e) => {
-      setComprador({
-         ...comprador,
-         [e.target.name]: e.target.value,
-      })
-   }
+	const generateWhatsAppLink = () => {
+		const telefono = '+59899460931'; // Reemplaza con tu número de teléfono
+		const mensaje = generateMessageContent(); // Utiliza el talle seleccionado de la compra
+		const encodedMensaje = encodeURIComponent(mensaje);
+		return `https://wa.me/${telefono}?text=${encodedMensaje}`;
+	};
 
+	const orden = {
+		comprador,
+		item: cart,
+		total,
+	};
 
-   return (
-     <>
-        <div className="grid grid-cols-1 content-center h-full">
-			<h1 className="mt-2 divider py-8">Carrito de compras</h1>
-			<hr />
+	const handlerSubmit = (e) => {
+		e.preventDefault();
+		if (comprador.name !== '' && comprador.phone !== '' && comprador.articulo !== '') {
+			generarOrden(orden)
+				.then((res) => {
+					swal({
+						title: 'Orden recibida con éxito!',
+						text: `Nº de orden: ${res.id}`,
+						icon: 'success',
+						button: 'Ok',
+					});
+				})
+				.then(() => cart.forEach((item) => actualizarStock(item.id, item.quantity)))
+				.then(() => deleteCart())
+				.catch((err) => swal(`Hubo un error`, 'Intenta de nuevo', 'error'));
+		} else {
+			swal({
+				title: 'Error',
+				text: 'Completa el formulario con tus datos para continuar',
+				icon: 'error',
+				button: 'Ok',
+			});
+		}
+	};
 
-			<div className="">
-				<div className="col-md-8">
-					{cart.length !== 0 && (
-						<>
-							{cart.map((product) => (
-								<CartList key={product.id}	
-								product={product} 
-								stock={product.stock}
-								price={product.price}
-								img={product.img}
-								/> 
-							))}
-							<div className="text-end m-3">
-								<button className="btn btn-error" onClick={deleteCart}>
-									Limpiar Carrito
-								</button>
-							</div>
-						</>
-					)}
-					{cart.length === 0 && (
-						<div className='h-96'>
-							<br/>
-							<h3 className='text-center'>Aún no tienes productos en el carrito...</h3>
-							<Link
-								to="/"
-								className="grid content-center btn text-white d-block w-96 mx-auto mt-4 bg-orange"
-							>
-								Busquemos algo!{" "}
-							</Link>
-							
-						</div>
-					)}
-				</div>
-				<div className="col-md-4">
-					{cart.length !== 0 && (
-						<>
-							<div className="card">
-								<h2 className="mt-3 text-center">Resumen Carrito</h2>
+	const handlerChange = (e) => {
+		setComprador({
+			...comprador,
+			[e.target.name]: e.target.value,
+		});
+	};
 
-								{cart.map((prod) => (
-									<CartResume 
-									key={prod.id} 
-									product={prod} 
-                           		/>
+	return (
+		<>
+			<div className="grid grid-cols-1 content-center h-full">
+				<h1 className="mt-2 divider py-8">Carrito de compras</h1>
+				<hr />
+
+				<div className="">
+					<div className="col-md-8">
+						{cart.length !== 0 && (
+							<>
+								{cart.map((product) => (
+									<CartList
+										key={product.id}
+										product={product}
+										talle={product.talle}
+										price={product.price}
+										img={product.img}
+									/>
 								))}
-
-								<h3 className='text-center'>Total a pagar: ${total}</h3>
-
-								<hr/>
-								<button className="mx-auto btn d-block mt-2 bg-greyBtn text-grey">Comprar via Whatsapp</button>
-				
-								{/*<div class="mx-auto lg:mx-auto md:mx-auto lg:mx-auto mt-8 flex flex-col justify-center phone-3 bg-cream shadow-lg rounded-2xl">
-								<h2 className='text-center text-black text-xl p-10'>Completa con tus datos para terminar tu pedido!</h2>
-								 <form
-									onSubmit={handlerSubmit}
-									onChange={handlerChange}
-									className="flex flex-col justify-center mb-3 mx-8 "
-								>
-									<input 
-										type="text" 
-										placeholder="Nombre" 
-										name="name"
-										value={orden.name}
-										class="w-full mx-auto px-auto mb-2 text-center input input-bordered input-orange w-full max-w-xl bg-white" 
-									/>
-									<input 
-										type="number" 
-										placeholder="Teléfono / Cel" 
-										name="phone"
-										value={orden.phone}
-										class="w-full mx-auto mb-2 text-center input input-bordered input-orange w-full max-w-xl bg-white" 
-									/>
-									<input 
-										type="email" 
-										placeholder="Email" 
-										name="email"
-										value={orden.email}
-										class="w-full mx-auto mb-2 text-center input input-bordered input-orange w-full max-w-xl bg-white" 
-									/>
-									
-
-									<button className="mx-auto w-full btn d-block mt-2 bg-orange text-black">
-										Enviar orden
+								<div className="flex justify-center p-4 col-md-4">
+									<button className="btn btn-error" onClick={deleteCart}>
+										Limpiar Carrito
 									</button>
-								</form> 
-								</div>*/};
+								</div>
+							</>
+						)}
+						{cart.length === 0 && (
+							<div className="h-96">
+								<br />
+								<h3 className="text-center">
+									Aún no tienes productos en el carrito...
+								</h3>
+								<Link
+									to="/"
+									className="grid content-center btn text-white d-block w-96 mx-auto mt-4 bg-orange"
+								>
+									Busquemos algo!{" "}
+								</Link>
 							</div>
-						</>
-					)}
+						)}
+					</div>
+					<div className="col-md-4">
+						{cart.length !== 0 && (
+							<>
+								<div className="card">
+									<h2 className="mt-3 text-center">Resumen:</h2>
+
+									{cart.map((prod) => (
+										<CartResume key={prod.id} product={prod} />
+									))}
+
+									<h3 className="text-center">Total a pagar: ${total}</h3>
+
+									<hr />
+									<div className="mx-autolg:mx-auto md:mx-auto lg:mx-auto mt-8 flex flex-col justify-center phone-3 bg-cream shadow-lg rounded-2xl">
+										<a
+											href={generateWhatsAppLink()}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="mx-auto btn w-full btn d-block mt-2 bg-greyBtn text-white"
+										>
+											Enviar orden de compra
+										</a>
+									</div>
+								</div>
+							</>
+						)}
+					</div>
 				</div>
 			</div>
-		</div>
-     </>
-   )
-}
+		</>
+	);
+};
 
- 
- export default Cart
- 
+export default Cart

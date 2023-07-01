@@ -14,7 +14,7 @@ export const NavBar = () => {
           <input id="my-drawer-3" type="checkbox" className="drawer-toggle " /> 
           <div className="drawer-content flex flex-col">
           {/*  <!-- Navbar --> */}
-          <div className='sticky top-0 z-50 text-center text-black '>
+          <div className='sticky top-0 z-50 text-center text-black tracking-wide'>
             ¡Envios a todo el país!
           </div>
             <div className="sticky top-0 z-50 w-full navbar bg-black" >
@@ -23,13 +23,13 @@ export const NavBar = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </label>
               </div> 
-              <Link to="/" className=" navbar-start px-2 mx-2 text-xl text-white" alt='Titulo'>
-                <h1>UNIFIT LOVE</h1>
+              <Link to="/" className=" navbar-start px-2 mx-2 text-xl text-white font-semibold" alt='Titulo'>
+                <h1>UNIVERSAL FITNESS</h1>
               </Link>
               <div className="flex-none hidden lg:block ">
                 <ul className="menu menu-horizontal">
                   {/* <!-- Navbar menu content here --> */}
-                  <Link to="/category/Calzas" className="flex-1 nav-link px-4 text-white">
+                  <Link to="/category/Calzas" className="flex-1 nav-link px-4 text-white ">
                     Calzas
                   </Link>
                   <Link to="/category/Abrigos" className="flex-1 nav-link px-4 text-white">
@@ -79,26 +79,26 @@ export const NavBar = () => {
           
           <div className="drawer-side">
             <label htmlFor="my-drawer-3" className="drawer-overlay" ></label> 
-            <ul className="menu p-4 pt-12 overflow-y-auto w-80">
+            <ul className="menu p-4 pt-12 pb-24 overflow-y-auto w-80 font-semibold tracking-wide bg-grey">
               {/* <!-- Sidebar content here --> */}
-              <h2 className="pb-10 px-2 mx-2 text-xl text-white"></h2>
-              <Link to="/category/Calzas" className="flex-1 nav-link px-8 text-white">
-                Calzas
+              <h2 className="pb-12 px-2 mx-2 text-xl text-white">UNIVERSAL FITNESS</h2>
+              <Link to="/category/Calzas" className="pt-12 flex-1 nav-link px-8 text-white">
+                CALZAS
               </Link>
               <Link to="/category/Abrigos" className="flex-1 nav-link px-8 text-white">
-                Abrigos
+                ABRIGOS
               </Link>
-              <Link to="/category/Musculosas&Remeras" className="flex-1 nav-link px-8 text-white">
-                Musculosas&Remeras
+              <Link to="/category/Musculosas&Remeras" className="flex-1 nav-link px-8 text-white ">
+                MUSCULOSAS & REMERAS
               </Link>
-              <Link to="/category/Tops" className="flex-1 nav-link px-8 text-white">
-                Tops
+              <Link to="/category/Tops" className="flex-1 nav-link px-8 text-white ">
+                TOPS
               </Link>
-              <Link to="/category/SALE" className="flex-1 nav-link px-8 text-white">
+              {/*<Link to="/category/SALE" className="flex-1 nav-link px-8 text-white">
                 SALE
-              </Link>
-              <Link to="/category/Biker&Shorts" className="flex-1 nav-link px-8 text-white">
-                Biker&Shorts
+                </Link>*/}
+              <Link to="/category/Biker&Shorts" className="flex-1 nav-link px-8 text-white ">
+                BIKER & SHORTS
               </Link>                              
             </ul>                       
           </div>

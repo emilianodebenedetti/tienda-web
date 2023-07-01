@@ -34,6 +34,9 @@ export const getImages = async() => {
   const imagen = await getDocs(collection(db, "articulos"))
   return imagen
 }
+export const getTalles = async() => {
+  const talle = await getDocs(collection(db, "talle"))
+}
 
 //Traer un ITEM
 export const getItem = async(id) => {

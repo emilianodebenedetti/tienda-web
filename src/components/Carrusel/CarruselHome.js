@@ -6,7 +6,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-import { Pagination } from "swiper";
+import { Autoplay, Pagination, FreeMode, Navigation } from "swiper";
 
 export const CarouselHome = () => {
     
@@ -18,7 +18,13 @@ export const CarouselHome = () => {
         pagination={{
           dynamicBullets: true,
         }}
-        modules={[Pagination]}
+        modules={[Autoplay, Pagination, Navigation]}
+        navigation={true}
+        autoplay={{
+          delay: 7000,
+          disableOnInteraction: true,
+        }}
+        loop="true"
         className="mySwiper"
       >
             {/* METER FOR EACH POR CADA IMAGEN */}

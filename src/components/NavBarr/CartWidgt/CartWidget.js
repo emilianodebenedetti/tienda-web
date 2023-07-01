@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Cart from './Cart'
 
-export const CartWidget = ({ prod }) => {  
+export const CartWidget = ({ prod, cantidad }) => {  
   return (
       <div>
             <label tabIndex="0" className="btn btn-ghost btn-circle">
