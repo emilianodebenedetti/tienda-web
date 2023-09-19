@@ -1,17 +1,31 @@
-import React from 'react'
-import { Link, Route, Routes } from 'react-router-dom'
+import React, { useState } from 'react'
+import { HashRouter, Link, Route, Routes } from 'react-router-dom'
 import CartWidget from './CartWidgt/CartWidget'
 import ItemDetailContainer from '../Shop/ItemDetail/ItemDetailContainer'
 import ItemListContainer from '../Shop/ItemList/ItemListContainer'
 import Footer from '../footer/Footer'
 import Cart from './CartWidgt/Cart'
+import BarraBúsqueda from './Búsqueda/BarraBúsqueda'
 
 
 export const NavBar = () => {
+
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+
+  const handleLinkClick = () => {
+    setIsNavbarOpen(false);
+  };
+
   return (
        <>
-        <div className="drawer ">
-          <input id="my-drawer-3" type="checkbox" className="drawer-toggle " /> 
+        <div className={`drawer ${isNavbarOpen ? 'open' : ''}`}>
+          <input 
+            id="my-drawer-3" 
+            type="checkbox" 
+            className="drawer-toggle" 
+            checked={isNavbarOpen} 
+            onChange={() => setIsNavbarOpen(!isNavbarOpen)} 
+          /> 
           <div className="drawer-content flex flex-col">
           {/*  <!-- Navbar --> */}
           <div className='sticky top-0 z-50 text-center text-black tracking-wide'>
@@ -26,9 +40,9 @@ export const NavBar = () => {
               <Link to="/" className=" navbar-start px-2 mx-2 text-xl text-white font-semibold" alt='Titulo'>
                 <h1>UNIVERSAL FITNESS</h1>
               </Link>
-              <div className="flex-none hidden lg:block ">
+              <div className="flex-none hidden lg:block">
                 <ul className="menu menu-horizontal">
-                  {/* <!-- Navbar menu content here --> */}
+                  {/* <!-- Contenido Navbar --> */}
                   <Link to="/category/Calzas" className="flex-1 nav-link px-4 text-white ">
                     Calzas
                   </Link>
@@ -41,12 +55,13 @@ export const NavBar = () => {
                   <Link to="/category/Tops" className="flex-1 nav-link px-4 text-white">
                     Tops
                   </Link>
-                  <Link to="/category/SALE" className="flex-1 nav-link px-4 text-white">
-                    SALE
-                  </Link>
                   <Link to="/category/Biker&Shorts" className="flex-1 nav-link px-4 text-white">
                     Biker&Shorts
-                  </Link>  			
+                  </Link>
+                  <Link to="/category/New In" className="flex-1 nav-link px-4 text-white">
+                    NEW
+                  </Link>
+                   			
                 </ul>
               </div>
               <div className="navbar-end text-black">
@@ -54,23 +69,17 @@ export const NavBar = () => {
                   {/* <button className="btn btn-ghost btn-circle text-white lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                   </button> */}
-
-                  {/* barra buscar (desktop) */}
-                  
+                  {/* <BarraBúsqueda/> */}
 
                   <div className="dropdown dropdown-end text-white"> 
                     <CartWidget/>      
                   </div>
                 </div>
               </div>
-            {/* <!-- Page content here --> */}  
-            
+            {/* <!-- Contenido aqui de la página --> */}             
              <Routes>{/*  HashRouter*/}
                 <Route exact path="/" element={<ItemListContainer/>}/>
-                <Route 
-                  path="/category/:categoryId" 
-                  element={<ItemListContainer />} 
-                />
+                <Route path="/category/:categoryId" element={<ItemListContainer />}/>
                 <Route path="/item/:id" element={<ItemDetailContainer/>} />
                 <Route path="/cart" element={<Cart/>}/>
             </Routes>  
@@ -79,25 +88,49 @@ export const NavBar = () => {
           
           <div className="drawer-side">
             <label htmlFor="my-drawer-3" className="drawer-overlay" ></label> 
-            <ul className="menu p-4 pt-12 pb-24 overflow-y-auto w-80 font-semibold tracking-wide bg-grey">
+            <ul id="list-link-mobile"  className="menu p-4 pt-12 pb-24 overflow-y-auto w-80 font-semibold tracking-wide bg-grey" >
               {/* <!-- Sidebar content here --> */}
               <h2 className="pb-12 px-2 mx-2 text-xl text-white">UNIVERSAL FITNESS</h2>
-              <Link to="/category/Calzas" className="pt-12 flex-1 nav-link px-8 text-white">
+              <Link 
+                to="/category/New In" 
+                className="flex-1 nav-link px-8 text-white pt-12"
+                onClick={handleLinkClick}
+              >
+                NEW
+              </Link>
+              <Link 
+                to="/category/Calzas" 
+                className="flex-1 nav-link px-8 text-white"
+                onClick={handleLinkClick}
+              >
                 CALZAS
               </Link>
-              <Link to="/category/Abrigos" className="flex-1 nav-link px-8 text-white">
+              <Link 
+                to="/category/Abrigos" 
+                className="flex-1 nav-link px-8 text-white"
+                onClick={handleLinkClick}
+              >
                 ABRIGOS
               </Link>
-              <Link to="/category/Musculosas&Remeras" className="flex-1 nav-link px-8 text-white ">
+              <Link 
+                to="/category/Musculosas&Remeras" 
+                className="flex-1 nav-link px-8 text-white "
+                onClick={handleLinkClick}
+              >
                 MUSCULOSAS & REMERAS
               </Link>
-              <Link to="/category/Tops" className="flex-1 nav-link px-8 text-white ">
+              <Link 
+                to="/category/Tops" 
+                className="flex-1 nav-link px-8 text-white"
+                onClick={handleLinkClick}
+              >
                 TOPS
               </Link>
-              {/*<Link to="/category/SALE" className="flex-1 nav-link px-8 text-white">
-                SALE
-                </Link>*/}
-              <Link to="/category/Biker&Shorts" className="flex-1 nav-link px-8 text-white ">
+              <Link 
+                to="/category/Biker&Shorts" 
+                className="flex-1 nav-link px-8 text-white "
+                onClick={handleLinkClick}
+              >
                 BIKER & SHORTS
               </Link>                              
             </ul>                       

@@ -6,8 +6,10 @@ import {
   getDoc, 
   getDocs, 
   getFirestore, 
+  query, 
   Timestamp,
-  updateDoc, 
+  updateDoc,
+  where, 
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -22,7 +24,6 @@ const firebaseConfig = {
  
 const app = initializeApp(firebaseConfig); 
 
-
 const db = getFirestore() 
 
 //Traer los items
@@ -33,9 +34,6 @@ export const getItems = async() => {
 export const getImages = async() => {
   const imagen = await getDocs(collection(db, "articulos"))
   return imagen
-}
-export const getTalles = async() => {
-  const talle = await getDocs(collection(db, "talle"))
 }
 
 //Traer un ITEM
@@ -58,3 +56,12 @@ export const actualizarStock = async (itemId, quantity) => {
     stock: item.data().stock - quantity,
   })
 }
+//Buscar productos  
+export const searchArticles = async (searchQuery) => {
+  const articlesRef = collection(db, 'articulos');
+  const n = query(articlesRef, where('nombre', '>=', searchQuery));
+  const snapshot = await getDocs(n);
+  const articles = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  return articles;
+};
+

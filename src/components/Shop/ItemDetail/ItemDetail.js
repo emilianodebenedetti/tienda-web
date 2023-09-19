@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 import SwiperArticulo from './SwiperArticulo/SwiperArticulo';
-import { useCartContext } from '../../context/CartContext';
 
 
 
 export const ItemDetail = ({ product, terminar, onAdd }) => {
 
   const [selectedTalle, setSelectedTalle] = useState(null);
-  const { cart } = useCartContext
   const handleTalleSelection = (selectedTalle) => {
     setSelectedTalle(selectedTalle);
   };
@@ -23,14 +21,15 @@ export const ItemDetail = ({ product, terminar, onAdd }) => {
           <h2 className="text-3xl lg:text-5xl font-bold">{product.nombre}</h2>
           <p className="py-1 md:py-6">'{product.descripcion}'</p>
           <div className="static inline-block align-bottom grid place-content-start">
-            <span className="text-2xl lg:text-3xl">$ {product.precio}</span>
             <h3> Color : {product.color}</h3>
+            <span className="text-2xl lg:text-3xl">$ {product.precio}</span>
+            <h3>Talle: </h3>
             <h3>
               {product.talle &&
                 product.talle.map((talle, index) => (
                   <button
                     key={index}
-                    className={`btn btn-outline rounded  ${selectedTalle === talle ? 'selected bg-greyBtn' : ''}`}
+                    className={`btn btn-outline rounded ${selectedTalle === talle ? 'selected bg-greyBtn' : ''}`}
                     onClick={() => handleTalleSelection(talle, index)}
                   >
                     {talle}

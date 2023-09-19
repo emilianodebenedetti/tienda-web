@@ -1,0 +1,15 @@
+.carousel-container {
+    width: 100%; /* Opcional: Asegura que el carrusel ocupe todo el ancho disponible */
+    max-width: 100%; /* Opcional: Evita que el carrusel se desborde en pantallas anchas */
+}
+  
+.linkCarousel {
+    width: 100%;
+}
+  
+.linkCarousel img {
+    width: 100%;
+    height: auto;
+    max-height: 100%; /* Opcional: Evita que las imágenes sean demasiado altas */
+}
+  

@@ -8,15 +8,19 @@ export const ItemList = ({ products, category }) => {
     <>
       <div className="relative flex flex-wrap gap-4 justify-center text-black">
         <CarouselHome/>
-        {products.map((product) => (
+        
+        
+        {products
+          .sort((a, b) => a.nombre.localeCompare(b.nombre))
+          .map((product) => (
                 <Item 
                   id={product.id}
-                  nombre={product.nombre}/* name */
-                  stock={product.stock}/* stock */
-                  desription={product.descripcion}/* description */
-                  precio={product.precio}/* price */
+                  nombre={product.nombre}
+                  stock={product.stock}
+                  desription={product.descripcion}
+                  precio={product.precio}
                   color={product.color}
-                  imagen={product.imagen}/* img */
+                  imagen={product.imagen}
                   key={product.id} 
                 />
         ))}
@@ -25,4 +29,4 @@ export const ItemList = ({ products, category }) => {
   );
 }
 
-export default ItemList 
+export default ItemList

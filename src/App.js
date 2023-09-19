@@ -12,7 +12,7 @@ function App() {
       <AppContextProvider>
         <CartContextProvider>
           <BrowserRouter>
-            <NavBar/>
+              <NavBar/>
           </BrowserRouter>
         </CartContextProvider>
       </AppContextProvider>
