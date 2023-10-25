@@ -20,12 +20,10 @@ export const ItemListContainer = () => {
   
 	
 	return (
-		<>						
+		<>
 			<ItemList products={productsCategory} category={categoryId}/>   			
 		</>
 	)
-  
-  
 }
 
 export default ItemListContainer

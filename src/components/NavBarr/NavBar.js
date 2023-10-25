@@ -58,9 +58,6 @@ export const NavBar = () => {
                   <Link to="/category/Biker&Shorts" className="flex-1 nav-link px-4 text-white">
                     Biker&Shorts
                   </Link>
-                  <Link to="/category/New In" className="flex-1 nav-link px-4 text-white">
-                    NEW
-                  </Link>
                    			
                 </ul>
               </div>
@@ -92,15 +89,8 @@ export const NavBar = () => {
               {/* <!-- Sidebar content here --> */}
               <h2 className="pb-12 px-2 mx-2 text-xl text-white">UNIVERSAL FITNESS</h2>
               <Link 
-                to="/category/New In" 
-                className="flex-1 nav-link px-8 text-white pt-12"
-                onClick={handleLinkClick}
-              >
-                NEW
-              </Link>
-              <Link 
                 to="/category/Calzas" 
-                className="flex-1 nav-link px-8 text-white"
+                className="flex-1 nav-link px-8 text-white pt-12"
                 onClick={handleLinkClick}
               >
                 CALZAS

@@ -8,7 +8,7 @@ export const ItemList = ({ products, category }) => {
     <>
       <div className="relative flex flex-wrap gap-4 justify-center text-black">
         <CarouselHome/>
-        
+        {/* <a>{category}</a> */}
         
         {products
           .sort((a, b) => a.nombre.localeCompare(b.nombre))
