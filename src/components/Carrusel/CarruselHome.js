@@ -4,25 +4,25 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
 import "../Carrusel/Carrusel.css";
-import { Link } from "react-router-dom";
 
 
 export const CarouselHome = () => {
-
     return (
     <>
-      <Link to="/category/New In" className="linkCarousel">
         <Swiper
           pagination={{
-            dynamicBullets: true,
+            dynamicBullets: false,
           }}
           modules={[Autoplay, Pagination, Navigation]}
-          navigation={true}
+          navigation={{
+            nextEl: null, // Desactivo botones next y prev
+            prevEl: null, 
+          }}
           autoplay={{
             delay: 7000,
-            disableOnInteraction: true,
+            disableOnInteraction: false,
           }}
           loop="true"
           className="mySwiper linkCarousel"
@@ -37,7 +37,6 @@ export const CarouselHome = () => {
               <img alt='Imagenes home 3' src='https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/Carrusel2.3.jpg?alt=media&token=2d626d12-3eab-4a4a-8546-f55f4814637a'/>
           </SwiperSlide>
         </Swiper>
-      </Link>
 
     </>
   );

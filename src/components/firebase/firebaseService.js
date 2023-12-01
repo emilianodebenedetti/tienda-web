@@ -5,11 +5,9 @@ import {
   doc, 
   getDoc, 
   getDocs, 
-  getFirestore, 
-  query, 
+  getFirestore,  
   Timestamp,
   updateDoc,
-  where, 
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -22,9 +20,9 @@ const firebaseConfig = {
 };
 
  
-const app = initializeApp(firebaseConfig); 
+export const app = initializeApp(firebaseConfig); 
 
-const db = getFirestore() 
+export const db = getFirestore(app) 
 
 //Traer los items
 export const getItems = async() => {
@@ -57,11 +55,10 @@ export const actualizarStock = async (itemId, quantity) => {
   })
 }
 //Buscar productos  
-export const searchArticles = async (searchQuery) => {
+/* export const searchArticles = async (searchQuery) => {
   const articlesRef = collection(db, 'articulos');
   const n = query(articlesRef, where('nombre', '>=', searchQuery));
   const snapshot = await getDocs(n);
   const articles = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   return articles;
-};
-
+}; */

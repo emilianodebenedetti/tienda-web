@@ -1,17 +1,38 @@
-import React, { useState } from 'react'
-import { HashRouter, Link, Route, Routes } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, Route, Routes } from 'react-router-dom'
 import CartWidget from './CartWidgt/CartWidget'
 import ItemDetailContainer from '../Shop/ItemDetail/ItemDetailContainer'
 import ItemListContainer from '../Shop/ItemList/ItemListContainer'
 import Footer from '../footer/Footer'
 import Cart from './CartWidgt/Cart'
-import BarraBúsqueda from './Búsqueda/BarraBúsqueda'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../firebase/firebaseService'
 
 
 export const NavBar = () => {
-
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const [busqueda, setBusqueda] = useState('')
+  const [filteredProducts, setFilteredProducts] = useState([]);
 
+
+  const productsCollection = collection(db, "articulos")
+
+  //logica buscador
+  const buscarProductos = async () => {
+    const data = await getDocs(productsCollection);
+    let localfilteredProducts = data.docs
+      .map((doc) => ({ ...doc.data(), id: doc.id }))
+      .filter((product) =>
+        product.nombre.toLowerCase().includes(busqueda.toLowerCase())
+      );
+    setFilteredProducts(localfilteredProducts)
+    console.log(localfilteredProducts)
+  };
+  useEffect(() => {
+    buscarProductos();
+  }, [busqueda]);
+
+  //cerrar automaticamente navbar lateral
   const handleLinkClick = () => {
     setIsNavbarOpen(false);
   };
@@ -62,11 +83,20 @@ export const NavBar = () => {
                 </ul>
               </div>
               <div className="navbar-end text-black">
-                  {/* btn busqueda mobile */}
-                  {/* <button className="btn btn-ghost btn-circle text-white lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                  </button> */}
-                  {/* <BarraBúsqueda/> */}
+                  {/* Barra Busqueda */}
+                  <div className=''>
+                    <input 
+                      type="text" 
+                      placeholder="Buscar articulo" 
+                      className="input bg-negro" 
+                      value={busqueda}
+                      onChange={(e) => setBusqueda(e.target.value)}
+                    />
+                    {/* <button className="btn btn-square" onClick={() => buscarProductos()}>
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </button> */}
+                  </div>
+
 
                   <div className="dropdown dropdown-end text-white"> 
                     <CartWidget/>      
@@ -74,11 +104,11 @@ export const NavBar = () => {
                 </div>
               </div>
             {/* <!-- Contenido aqui de la página --> */}             
-             <Routes>{/*  HashRouter*/}
-                <Route exact path="/" element={<ItemListContainer/>}/>
-                <Route path="/category/:categoryId" element={<ItemListContainer />}/>
-                <Route path="/item/:id" element={<ItemDetailContainer/>} />
-                <Route path="/cart" element={<Cart/>}/>
+            <Routes>{/*  HashRouter*/}
+               <Route exact path="/" element={<ItemListContainer filteredProducts={filteredProducts}/>}/>
+               <Route path="/category/:categoryId" element={<ItemListContainer filteredProducts={filteredProducts}/>}/>
+               <Route path="/item/:id" element={<ItemDetailContainer/>} />
+               <Route path="/cart" element={<Cart/>}/>
             </Routes>  
           <Footer/>
           </div> 

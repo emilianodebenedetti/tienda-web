@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 
-export const Item = ({ nombre, precio, imagen, color, id }) => { 
+export const Item = ({ nombre, precio, imagen, id }) => { 
     return (
         <div className="card w-80 col itemListCol mb-2 bg-white shadow-xl rounded" height="60">
         <div className="d-flex justify-content-center align-items-center">

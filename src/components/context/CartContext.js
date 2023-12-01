@@ -15,19 +15,14 @@ const CartContextProvider = ({ children }) => {
 
     // const addToCart = (prod, cantidad, selectedTalle) => {
     //     const newCart = [...cart]
-
     //     const productoIsInCart = isInCart(prod.id)
-
     //     if (productoIsInCart) {
     //         newCart[
     //             newCart.findIndex(prod => prod.id === productoIsInCart.id)
     //         ].quantity += cantidad
-
     //         setCart(newCart)
-
     //         return
     //     }
-
     //     prod.quantity = cantidad
     //     setCart([...newCart, prod])
 
@@ -51,17 +46,14 @@ const CartContextProvider = ({ children }) => {
 
     const deleteFromCart = (producto) => {
         const newCart = [...cart]
-
         const productIsInCart = isInCart(producto.id)
 
         if (!productIsInCart) {
             return
         }
-
         const deleteProduct = newCart.filter(
             (prod) => prod.id !== producto.id
         )
-
         setCart(deleteProduct)
     }
 
