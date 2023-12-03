@@ -9,22 +9,28 @@ export const ItemListContainer = ({ filteredProducts }) => {
 	const { categoryId } = useParams()
 	const [busqueda, setBusqueda] = useState('')
 
+	const totalProducts = products.length;
+
 	useEffect(() => {
 		const productsToUse = filteredProducts.length > 0 ? filteredProducts : products;
-		console.log(productsToUse)
-		!categoryId 
-			? setProductsCategory(productsToUse) 
-			: setProductsCategory(
-				productsToUse.filter((product) => 
-					product.categoria === categoryId &&
-					product.nombre.toLowerCase().includes(busqueda.toLocaleLowerCase())
-				)
-			)
-	}, [categoryId, products, filteredProducts])
+	
+		const filtered = productsToUse.filter((product) => 
+		  (!categoryId || product.categoria === categoryId) && // filtro x categoría solo si hay categoría
+		  product.nombre.toLowerCase().includes(busqueda.toLowerCase())
+		);
+	
+		setProductsCategory(filtered);
+	  }, [categoryId, products, filteredProducts, busqueda]);
 
 	return (
 		<>
-			<ItemList products={productsCategory} category={categoryId} filteredProducts={filteredProducts}/>   			
+			<ItemList 
+				products={productsCategory} 
+				category={categoryId} 
+				busqueda={filteredProducts} 
+				filteredProducts={filteredProducts}
+				totalProducts={totalProducts}
+			/>
 		</>
 	)
 }
