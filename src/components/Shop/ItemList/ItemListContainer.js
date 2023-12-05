@@ -18,9 +18,8 @@ export const ItemListContainer = ({ filteredProducts }) => {
 		  (!categoryId || product.categoria === categoryId) && // filtro x categoría solo si hay categoría
 		  product.nombre.toLowerCase().includes(busqueda.toLowerCase())
 		);
-	
 		setProductsCategory(filtered);
-	  }, [categoryId, products, filteredProducts, busqueda]);
+	}, [categoryId, products, filteredProducts, busqueda]);
 
 	return (
 		<>
@@ -28,6 +27,7 @@ export const ItemListContainer = ({ filteredProducts }) => {
 				products={productsCategory} 
 				category={categoryId} 
 				totalProducts={totalProducts}
+				setBusqueda={busqueda}
 			/>
 		</>
 	)

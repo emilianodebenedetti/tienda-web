@@ -5,12 +5,13 @@ import React from 'react';
 export const ItemList = ({ products, totalProducts  }) => {
 
   const shouldShowCarousel = products.length === totalProducts;
-
   return (
     <>
       <div >
         {shouldShowCarousel && <CarouselHome />}
-        <div className="relative flex flex-wrap gap-4 justify-center text-black">
+        {!shouldShowCarousel && <h1 className='text-center text-black text-xl pt-4'>Mostrando resultados filtrados ...</h1>}
+        
+        <div className="relative flex flex-wrap gap-4 justify-center text-black py-12">
           {products
             .sort((a, b) => a.nombre.localeCompare(b.nombre))
             .map((product) => (

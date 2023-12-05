@@ -14,9 +14,8 @@ export const NavBar = () => {
   const [busqueda, setBusqueda] = useState('')
   const [filteredProducts, setFilteredProducts] = useState([]);
 
-
   const productsCollection = collection(db, "articulos")
-
+  console.log(busqueda)
   //logica buscador
   const buscarProductos = async () => {
     const data = await getDocs(productsCollection);
@@ -102,8 +101,8 @@ export const NavBar = () => {
               </div>
             {/* <!-- Contenido aqui de la página --> */}             
             <Routes>{/*  HashRouter*/}
-               <Route exact path="/" element={<ItemListContainer filteredProducts={filteredProducts}/>}/>
-               <Route path="/category/:categoryId" element={<ItemListContainer filteredProducts={filteredProducts}/>}/>
+               <Route exact path="/" element={<ItemListContainer filteredProducts={filteredProducts} busqueda={busqueda}/>}/>
+               <Route path="/category/:categoryId" element={<ItemListContainer filteredProducts={filteredProducts} busqueda={busqueda}/>}/>
                <Route path="/item/:id" element={<ItemDetailContainer/>} />
                <Route path="/cart" element={<Cart/>}/>
             </Routes>  

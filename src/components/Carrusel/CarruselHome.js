@@ -39,17 +39,17 @@ export const CarouselHome = () => {
           </SwiperSlide>
         </Swiper>
 
-        <h1 className="text-center text-black pt-4" >Elige tu categoria!</h1>
-        <div className="category-container w-full grid justify-items-center grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mx-auto py-8 mb-0 text-center text-white font-bold"> 
+        <h2 className="text-center text-black pt-8 text-xl" >Elige tu categoria!</h2>
+        <div className="category-container w-full grid justify-items-center grid-cols-2 py-4 lg:py-12 md:py-8 md:grid-cols-3 lg:grid-cols-5 gap-4 mx-auto  mb-0 text-center text-white font-bold"> 
           <Link className="category-link " to="/category/Calzas">
             <div className="category-item rounded overflow-hidden h-mobile w-full">
               <img 
                 className="category-image w-full h-full object-cover" 
                 src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/Calza%20Argelia%20estampada%20talle%20S%20.JPG?alt=media&token=13adf7a2-47b0-4abd-969d-0ccdf0754763"
               />
-              <h2 className="category-text">CALZAS</h2>
+              <p className="category-text">CALZAS</p>
             </div>
-            <h3 className="text-black">Calzas</h3>
+            <p className="text-black">Calzas</p>
           </Link>
           <Link className="category-link " to="/category/Abrigos">
             <div className="category-item rounded overflow-hidden h-mobile ">
@@ -57,9 +57,9 @@ export const CarouselHome = () => {
                 className="category-image w-full h-full object-cover" 
                 src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/2%20Buzo%20lakes%20coral%20snow%20S%20M%20L%20.JPG?alt=media&token=d665c378-e2c3-47cd-8481-71e0fd5c4458"
               />
-              <h2 className="category-text">ABRIGOS</h2>
+              <p className="category-text">ABRIGOS</p>
             </div>
-            <h3 className="text-black">Abrigos</h3>
+            <p className="text-black">Abrigos</p>
            </Link>
           <Link className="category-link" to="/category/Musculosas&Remeras">
             <div className="category-item rounded overflow-hidden h-mobile ">
@@ -67,9 +67,9 @@ export const CarouselHome = () => {
                 className="category-image w-full h-40 object-cover" 
                 src="https://firebasestorage.googleapis.com/v0/b/backend-proyect-e58f8.appspot.com/o/imagen%2FMUSCULOSA%20IDUS%20NARANJA%20S%20M%20L%20.JPG?alt=media&token=1947fe68-b880-4fd1-9dd1-659bbb2b154a"
               />
-              <h2 className="category-text">MUSCULOSAS & REMERAS</h2>
+              <p className="category-text">MUSCULOSAS & REMERAS</p>
             </div>
-            <h3 className="text-black">Musculosas & Remeras</h3>
+            <p className="text-black">Musculosas & Remeras</p>
           </Link>
           <Link className="category-link" to="/category/Tops">
             <div className="category-item rounded overflow-hidden h-mobile ">
@@ -77,9 +77,9 @@ export const CarouselHome = () => {
                 className="category-image w-full h-40 object-cover" 
                 src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/2%20Top%20Beuge%20negro%20S%20M%20L%20%20.jpg?alt=media&token=eb83717e-eb54-45fc-b548-d18a578e01ed"
               />
-              <h2 className="category-text">TOPS</h2>
+              <p className="category-text">TOPS</p>
             </div>
-            <h3 className="text-black">Tops</h3>
+            <p className="text-black">Tops</p>
           </Link>
           <Link className="category-link" to="/category/Biker&Shorts">
             <div className="category-item rounded overflow-hidden h-mobile">
@@ -87,12 +87,13 @@ export const CarouselHome = () => {
                 className="category-image w-full h-40 object-cover" 
                 src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/Short%20botanic%20talle%202S.jpg?alt=media&token=be73367b-62bf-4877-9fcd-903b50c0bd17"
               />
-              <h2 className="category-text">BIKER & SHORTS</h2>
+              <p className="category-text">BIKER & SHORTS</p>
             </div>
-            <h3 className="text-black">Biker & Shorts</h3>
+            <p className="text-black">Biker & Shorts</p>
           </Link>
 
         </div>
+          <h2 className="text-center text-black pt-2 text-2xl text-center font-bold" >Todos los productos ...</h2>
     </>
   );
 }
