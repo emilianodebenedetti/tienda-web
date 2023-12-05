@@ -15,7 +15,6 @@ export const NavBar = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   const productsCollection = collection(db, "articulos")
-  console.log(busqueda)
   //logica buscador
   const buscarProductos = async () => {
     const data = await getDocs(productsCollection);
@@ -56,8 +55,8 @@ export const NavBar = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </label>
               </div> 
-              <Link to="/" className=" navbar-start px-2 mx-2 text-xl text-white font-semibold" alt='Titulo'>
-                <h1>UNIVERSAL FITNESS</h1>
+              <Link to="/" className="max-w-auto navbar-start px-2 mx-2 text-xl text-white font-semibold" alt='Titulo'>
+                <h1 >UNIVERSAL FITNESS</h1>
               </Link>
               <div className="flex-none hidden lg:block">
                 <ul className="menu menu-horizontal">
@@ -80,19 +79,32 @@ export const NavBar = () => {
                    			
                 </ul>
               </div>
-              <div className="navbar-end text-black">
-                  {/* Barra Busqueda */}
+                <div className="navbar-end text-black">
+                  {/* Barra busqueda mobile */}
+                  <div className='dropdown dropdown-left'> 
+                    <button tabIndex={0} role="button" className="lg:hidden btn btn-ghost btn-circle text-white">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                    </button>
+                    <div tabIndex={0} className="dropdown-content z-[1] menu shadow bg-base-100 rounded-box ">
+                      <input 
+                        type="text" 
+                        placeholder="Buscar articulo" 
+                        className="input bg-negro lg:block" 
+                        value={busqueda}
+                        onChange={(e) => setBusqueda(e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Barra Busqueda desktop*/}
                   <div className=''>
                     <input 
                       type="text" 
                       placeholder="Buscar articulo" 
-                      className="input bg-negro" 
+                      className="input bg-negro hidden lg:block" 
                       value={busqueda}
                       onChange={(e) => setBusqueda(e.target.value)}
                     />
-                    {/* <button className="btn btn-square" onClick={() => buscarProductos()}>
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                    </button> */}
                   </div>
                   <div className="dropdown dropdown-end text-white"> 
                     <CartWidget/>      
@@ -101,8 +113,8 @@ export const NavBar = () => {
               </div>
             {/* <!-- Contenido aqui de la página --> */}             
             <Routes>{/*  HashRouter*/}
-               <Route exact path="/" element={<ItemListContainer filteredProducts={filteredProducts} busqueda={busqueda}/>}/>
-               <Route path="/category/:categoryId" element={<ItemListContainer filteredProducts={filteredProducts} busqueda={busqueda}/>}/>
+               <Route exact path="/" element={<ItemListContainer filteredProducts={filteredProducts}/>}/>
+               <Route path="/category/:categoryId" element={<ItemListContainer filteredProducts={filteredProducts}/>}/>
                <Route path="/item/:id" element={<ItemDetailContainer/>} />
                <Route path="/cart" element={<Cart/>}/>
             </Routes>  

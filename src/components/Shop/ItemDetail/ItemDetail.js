@@ -53,7 +53,7 @@ export const ItemDetail = ({ product, terminar, onAdd }) => {
                   src='https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/No%20articulos%2FGuia%20de%20Talles.jpg?alt=media&token=cd75d8df-a8a4-49dc-a423-4e97297f89a9' 
                   alt='Guia de Talles'
                 />
-                <div className="modal-action flex justify-center">
+                <div className="modal-action flex">
                   <label htmlFor="my_modal_6" className="btn">Cerrar</label>
                 </div>
               </div>
