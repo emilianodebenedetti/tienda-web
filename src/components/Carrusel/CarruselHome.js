@@ -55,7 +55,7 @@ export const CarouselHome = () => {
             <div className="category-item rounded overflow-hidden h-mobile ">
               <img 
                 className="category-image w-full h-full object-cover" 
-                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/imagenes-categorias%2Fabrigos.jpg?alt=media&token=a0e3a7bf-fdd6-4a01-abe9-28a83cc9e5ce"
+                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/abrigos.jpg?alt=media&token=a7457e67-4879-45c7-98d5-2dee41134726"
               />
               <p className="category-text">ABRIGOS</p>
             </div>
