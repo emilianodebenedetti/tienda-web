@@ -45,7 +45,7 @@ export const CarouselHome = () => {
             <div className="category-item rounded overflow-hidden h-mobile w-full">
               <img 
                 className="category-image w-full h-full object-cover" 
-                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/Calza%20Argelia%20estampada%20talle%20S%20.JPG?alt=media&token=13adf7a2-47b0-4abd-969d-0ccdf0754763"
+                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/imagenes-categorias%2Fcalzas.jpg?alt=media&token=a03bda60-2ebb-40ac-af94-1349be8c36c7"
               />
               <p className="category-text">CALZAS</p>
             </div>
@@ -55,7 +55,7 @@ export const CarouselHome = () => {
             <div className="category-item rounded overflow-hidden h-mobile ">
               <img 
                 className="category-image w-full h-full object-cover" 
-                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/2%20Buzo%20lakes%20coral%20snow%20S%20M%20L%20.JPG?alt=media&token=d665c378-e2c3-47cd-8481-71e0fd5c4458"
+                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/imagenes-categorias%2Fabrigos.jpg?alt=media&token=a0e3a7bf-fdd6-4a01-abe9-28a83cc9e5ce"
               />
               <p className="category-text">ABRIGOS</p>
             </div>
@@ -65,7 +65,7 @@ export const CarouselHome = () => {
             <div className="category-item rounded overflow-hidden h-mobile ">
               <img 
                 className="category-image w-full h-40 object-cover" 
-                src="https://firebasestorage.googleapis.com/v0/b/backend-proyect-e58f8.appspot.com/o/imagen%2FMUSCULOSA%20IDUS%20NARANJA%20S%20M%20L%20.JPG?alt=media&token=1947fe68-b880-4fd1-9dd1-659bbb2b154a"
+                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/imagenes-categorias%2Fmusculosas%20y%20remeras.jpg?alt=media&token=d6337dba-5a88-453b-9fcd-4c72de7efe60"
               />
               <p className="category-text">MUSCULOSAS & REMERAS</p>
             </div>
@@ -75,7 +75,7 @@ export const CarouselHome = () => {
             <div className="category-item rounded overflow-hidden h-mobile ">
               <img 
                 className="category-image w-full h-40 object-cover" 
-                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/2%20Top%20Beuge%20negro%20S%20M%20L%20%20.jpg?alt=media&token=eb83717e-eb54-45fc-b548-d18a578e01ed"
+                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/imagenes-categorias%2Ftops.jpg?alt=media&token=73a3c027-129d-456b-a96f-7034d1b67535"
               />
               <p className="category-text">TOPS</p>
             </div>
@@ -85,7 +85,7 @@ export const CarouselHome = () => {
             <div className="category-item rounded overflow-hidden h-mobile">
               <img 
                 className="category-image w-full h-40 object-cover" 
-                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/Short%20botanic%20talle%202S.jpg?alt=media&token=be73367b-62bf-4877-9fcd-903b50c0bd17"
+                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/imagenes-categorias%2Fbiker%20y%20shorts.jpg?alt=media&token=5f7939ca-08b4-4853-8314-0c7cec5f3c12"
               />
               <p className="category-text">BIKER & SHORTS</p>
             </div>
