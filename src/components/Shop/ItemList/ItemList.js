@@ -2,31 +2,30 @@ import CarouselHome from '../../Carrusel/CarruselHome';
 import { Item } from '../Item/Item';
 import React from 'react';
 
-export const ItemList = ({ products, category, filteredProducts, busqueda, totalProducts  }) => {
+export const ItemList = ({ products, totalProducts  }) => {
 
-  const shouldShowCarousel = products.length === totalProducts;/* !category && filteredProducts.length >= products.length; */
-  console.log(shouldShowCarousel)
+  const shouldShowCarousel = products.length === totalProducts;
 
   return (
     <>
-
-      <div className="relative flex flex-wrap gap-4 justify-center text-black">
-        {/* {!category && !filteredProducts && <CarouselHome />} */}
+      <div >
         {shouldShowCarousel && <CarouselHome />}
-        {products
-          .sort((a, b) => a.nombre.localeCompare(b.nombre))
-          .map((product) => (
-            <Item
-              id={product.id}
-              nombre={product.nombre}
-              stock={product.stock}
-              desription={product.descripcion}
-              precio={product.precio}
-              color={product.color}
-              imagen={product.imagen}
-              key={product.id}
-            />
-        ))}
+        <div className="relative flex flex-wrap gap-4 justify-center text-black">
+          {products
+            .sort((a, b) => a.nombre.localeCompare(b.nombre))
+            .map((product) => (
+              <Item
+                id={product.id}
+                nombre={product.nombre}
+                stock={product.stock}
+                desription={product.descripcion}
+                precio={product.precio}
+                color={product.color}
+                imagen={product.imagen}
+                key={product.id}
+                />
+              ))}
+          </div>
       </div>
     </>
   );

@@ -12,10 +12,9 @@ export const Item = ({ nombre, precio, imagen, id }) => {
                     <div className="image">
                     <figure>
                         <img 
-                            className='max-h-fit same-height-img' 
-                            /*width="240"*/  
+                            className='max-h-fit same-height-img'  
                             src={imagen[0]} 
-                            alt="#" 
+                            alt= "Imagen, ${nombre}`"
                         />
                         </figure>
                         <h2 className="text-center text-lg font-semibold">{nombre}</h2>

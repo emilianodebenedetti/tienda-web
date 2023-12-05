@@ -1,8 +1,3 @@
-.carousel-container {
-    width: 100%; /* Opcional: Asegura que el carrusel ocupe todo el ancho disponible */
-    max-width: 100%; /* Opcional: Evita que el carrusel se desborde en pantallas anchas */
-}
-  
 .linkCarousel {
     width: 100%;
 }
@@ -10,6 +5,71 @@
 .linkCarousel img {
     width: 100%;
     height: auto;
-    max-height: 100%; /* Opcional: Evita que las imágenes sean demasiado altas */
+    max-height: 100%; 
 }
-  
+@media (max-width: 500px) {
+    .linkCarousel img {
+        width: 200%;
+        height: 100%;
+    }
+}
+
+.category-container {
+    width: 90vw;
+}
+.category-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    max-width: 250px;
+    margin: 0 0;
+}
+
+.category-item:hover .category-image{
+  transform: scale(1.1);
+}
+
+.category-item:hover .category-text {
+    opacity: 1;
+}
+.category-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.category-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.category-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.category-text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: enstartd;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease-in-out;
+}
+.h-mobile {
+    height: 20vh;
+}

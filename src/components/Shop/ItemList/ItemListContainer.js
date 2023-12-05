@@ -27,8 +27,6 @@ export const ItemListContainer = ({ filteredProducts }) => {
 			<ItemList 
 				products={productsCategory} 
 				category={categoryId} 
-				busqueda={filteredProducts} 
-				filteredProducts={filteredProducts}
 				totalProducts={totalProducts}
 			/>
 		</>
