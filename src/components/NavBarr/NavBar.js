@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes, useNavigate } from 'react-router-dom'
 import CartWidget from './CartWidgt/CartWidget'
 import ItemDetailContainer from '../Shop/ItemDetail/ItemDetailContainer'
 import ItemListContainer from '../Shop/ItemList/ItemListContainer'
@@ -10,33 +10,58 @@ import { db } from '../firebase/firebaseService'
 
 
 export const NavBar = () => {
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false)
   const [busqueda, setBusqueda] = useState('')
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([])
+  const navigate = useNavigate();
 
   const productsCollection = collection(db, "articulos")
+
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        timeout = null;
+        func(...args);
+      };
+  
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+  
+  /* espero determinado lapso de tiempo para ejecutar busqueda */
+  const debouncedBuscarProductos = debounce(() => {
+    redirectHome()
+    buscarProductos();
+  }, 300);
+
   //logica buscador
   const buscarProductos = async () => {
-    const data = await getDocs(productsCollection);
+    
+    const data = await getDocs(productsCollection)
     let localfilteredProducts = data.docs
       .map((doc) => ({ ...doc.data(), id: doc.id }))
       .filter((product) =>
         product.nombre.toLowerCase().includes(busqueda.toLowerCase())
-      );
+      )
     setFilteredProducts(localfilteredProducts)
-  };
+  }
+
   useEffect(() => {
-    buscarProductos();
-  }, [busqueda]);
+    debouncedBuscarProductos();
+  }, [busqueda])
+
+  const redirectHome = () => {
+    navigate('/')
+  }
 
   const resetearBusqueda = () => {
-    setBusqueda('');
+    setBusqueda('')
   };
-
-  //cerrar automaticamente navbar lateral
   const handleLinkClick = () => {
-    setIsNavbarOpen(false);
-  };
+    setIsNavbarOpen(false)
+  }
 
   return (
        <>
