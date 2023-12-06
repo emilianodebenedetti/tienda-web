@@ -91,9 +91,8 @@ export const CarouselHome = () => {
             </div>
             <p className="text-black">Biker & Shorts</p>
           </Link>
-
         </div>
-          <h2 className="text-center text-black pt-2 text-2xl text-center font-bold" >Todos los productos ...</h2>
+          
     </>
   );
 }

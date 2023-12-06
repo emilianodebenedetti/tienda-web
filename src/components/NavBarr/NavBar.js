@@ -29,7 +29,7 @@ export const NavBar = () => {
       timeout = setTimeout(later, wait);
     };
   }
-  
+
   /* espero determinado lapso de tiempo para ejecutar busqueda */
   const debouncedBuscarProductos = debounce(() => {
     redirectHome()
@@ -46,6 +46,10 @@ export const NavBar = () => {
         product.nombre.toLowerCase().includes(busqueda.toLowerCase())
       )
     setFilteredProducts(localfilteredProducts)
+    if (localfilteredProducts.length === 0) {
+      // Puedes ajustar esto según tus necesidades
+      console.log('No se encontraron productos');
+    }
   }
 
   useEffect(() => {

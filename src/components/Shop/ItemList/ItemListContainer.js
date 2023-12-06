@@ -23,11 +23,13 @@ export const ItemListContainer = ({ filteredProducts }) => {
 
 	return (
 		<>
+		
 			<ItemList 
 				products={productsCategory} 
 				category={categoryId} 
 				totalProducts={totalProducts}
 				setBusqueda={busqueda}
+				filteredProducts={filteredProducts}
 			/>
 		</>
 	)
