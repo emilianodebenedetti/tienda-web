@@ -29,6 +29,10 @@ export const NavBar = () => {
     buscarProductos();
   }, [busqueda]);
 
+  const resetearBusqueda = () => {
+    setBusqueda('');
+  };
+
   //cerrar automaticamente navbar lateral
   const handleLinkClick = () => {
     setIsNavbarOpen(false);
@@ -61,19 +65,19 @@ export const NavBar = () => {
               <div className="flex-none hidden lg:block">
                 <ul className="menu menu-horizontal">
                   {/* <!-- Contenido Navbar --> */}
-                  <Link to="/category/Calzas" className="flex-1 nav-link px-4 text-white ">
+                  <Link to="/category/Calzas" onClick={resetearBusqueda} className="flex-1 nav-link px-4 text-white ">
                     Calzas
                   </Link>
-                  <Link to="/category/Abrigos" className="flex-1 nav-link px-4 text-white">
+                  <Link to="/category/Abrigos" onClick={resetearBusqueda} className="flex-1 nav-link px-4 text-white">
                     Abrigos
                   </Link>
-                  <Link to="/category/Musculosas&Remeras" className="flex-1 nav-link px-4 text-white">
+                  <Link to="/category/Musculosas&Remeras" onClick={resetearBusqueda} className="flex-1 nav-link px-4 text-white">
                     Musculosas&Remeras
                   </Link>
-                  <Link to="/category/Tops" className="flex-1 nav-link px-4 text-white">
+                  <Link to="/category/Tops" onClick={resetearBusqueda} className="flex-1 nav-link px-4 text-white">
                     Tops
                   </Link>
-                  <Link to="/category/Biker&Shorts" className="flex-1 nav-link px-4 text-white">
+                  <Link to="/category/Biker&Shorts" onClick={resetearBusqueda} className="flex-1 nav-link px-4 text-white">
                     Biker&Shorts
                   </Link>
                    			
@@ -129,28 +133,40 @@ export const NavBar = () => {
               <Link 
                 to="/category/Calzas" 
                 className="flex-1 nav-link px-8 text-white pt-12"
-                onClick={handleLinkClick}
+                onClick={() => {
+                  handleLinkClick()
+                  resetearBusqueda()
+                }}
               >
                 CALZAS
               </Link>
               <Link 
                 to="/category/Abrigos" 
                 className="flex-1 nav-link px-8 text-white"
-                onClick={handleLinkClick}
+                onClick={() => {
+                  handleLinkClick()
+                  resetearBusqueda()
+                }}
               >
                 ABRIGOS
               </Link>
               <Link 
                 to="/category/Musculosas&Remeras" 
                 className="flex-1 nav-link px-8 text-white "
-                onClick={handleLinkClick}
+                onClick={() => {
+                  handleLinkClick()
+                  resetearBusqueda()
+                }}
               >
                 MUSCULOSAS & REMERAS
               </Link>
               <Link 
                 to="/category/Tops" 
                 className="flex-1 nav-link px-8 text-white"
-                onClick={handleLinkClick}
+                onClick={() => {
+                  handleLinkClick()
+                  resetearBusqueda()
+                }}
               >
                 TOPS
               </Link>
