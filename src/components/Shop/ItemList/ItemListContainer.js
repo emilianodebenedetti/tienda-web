@@ -23,7 +23,6 @@ export const ItemListContainer = ({ filteredProducts }) => {
 
 	return (
 		<>
-		
 			<ItemList 
 				products={productsCategory} 
 				category={categoryId} 

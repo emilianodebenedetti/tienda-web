@@ -17,24 +17,11 @@ export const NavBar = () => {
 
   const productsCollection = collection(db, "articulos")
 
-  function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        timeout = null;
-        func(...args);
-      };
-  
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  }
-
   /* espero determinado lapso de tiempo para ejecutar busqueda */
   const debouncedBuscarProductos = debounce(() => {
     redirectHome()
     buscarProductos();
-  }, 300);
+  }, 1000);
 
   //logica buscador
   const buscarProductos = async () => {
@@ -46,10 +33,6 @@ export const NavBar = () => {
         product.nombre.toLowerCase().includes(busqueda.toLowerCase())
       )
     setFilteredProducts(localfilteredProducts)
-    if (localfilteredProducts.length === 0) {
-      // Puedes ajustar esto según tus necesidades
-      console.log('No se encontraron productos');
-    }
   }
 
   useEffect(() => {
@@ -202,7 +185,10 @@ export const NavBar = () => {
               <Link 
                 to="/category/Biker&Shorts" 
                 className="flex-1 nav-link px-8 text-white "
-                onClick={handleLinkClick}
+                onClick={() => {
+                  handleLinkClick()
+                  resetearBusqueda()
+                }}
               >
                 BIKER & SHORTS
               </Link>                              
@@ -214,4 +200,17 @@ export const NavBar = () => {
 }
 
 export default NavBar
+
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      timeout = null;
+      func(...args);
+    };
+
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
 

@@ -12,7 +12,7 @@ export const ItemList = ({ products, totalProducts, filteredProducts  }) => {
         <h2 className="text-center text-black pt-2 text-2xl text-center font-bold" >Nuestros productos ...</h2>
         <div className="relative flex flex-wrap gap-4 justify-center text-black py-12">
         {filteredProducts.length > 0 ? (
-            filteredProducts
+          products
               .sort((a, b) => a.nombre.localeCompare(b.nombre))
               .map((product) => (
                 <Item
@@ -24,15 +24,12 @@ export const ItemList = ({ products, totalProducts, filteredProducts  }) => {
                   color={product.color}
                   imagen={product.imagen}
                   key={product.id}
-                />
-              ))
-          ) : (
-            <div>
-              <h1 className='text-center text-black text-xl'>No se encontraron productos</h1>
-              <p className='text-center pt-2'>Revise sus terminos de busqueda</p>
-            </div>
-          )}
-          </div>
+                  />
+            ))
+        ):(
+          <h3>No hay productos</h3>
+        )}
+        </div>
       </div>
     </>
   );
