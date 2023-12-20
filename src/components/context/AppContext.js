@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { getImages, getItems } from '../firebase/firebaseService';
-import { Firestore, collection, getFirestore } from 'firebase/firestore';
 
 
 /*{const articulosRef = collection(getFirestore(), 'articulos')}*/

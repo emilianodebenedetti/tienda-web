@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, Route, Routes, useNavigate } from 'react-router-dom'
+import { Link, Route, Routes, useLocation } from 'react-router-dom'
 import CartWidget from './CartWidgt/CartWidget'
 import ItemDetailContainer from '../Shop/ItemDetail/ItemDetailContainer'
 import ItemListContainer from '../Shop/ItemList/ItemListContainer'
@@ -8,24 +8,21 @@ import Cart from './CartWidgt/Cart'
 import { collection, getDocs } from 'firebase/firestore'
 import { db } from '../firebase/firebaseService'
 
-
 export const NavBar = () => {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false)
   const [busqueda, setBusqueda] = useState('')
   const [filteredProducts, setFilteredProducts] = useState([])
-  const navigate = useNavigate();
+  const location = useLocation();
 
   const productsCollection = collection(db, "articulos")
 
   /* espero determinado lapso de tiempo para ejecutar busqueda */
   const debouncedBuscarProductos = debounce(() => {
-    redirectHome()
     buscarProductos();
   }, 1000);
 
   //logica buscador
-  const buscarProductos = async () => {
-    
+  const buscarProductos = async () => { 
     const data = await getDocs(productsCollection)
     let localfilteredProducts = data.docs
       .map((doc) => ({ ...doc.data(), id: doc.id }))
@@ -38,17 +35,16 @@ export const NavBar = () => {
   useEffect(() => {
     debouncedBuscarProductos();
   }, [busqueda])
-
-  const redirectHome = () => {
-    navigate('/')
-  }
-
+ 
   const resetearBusqueda = () => {
     setBusqueda('')
-  };
+  }
   const handleLinkClick = () => {
     setIsNavbarOpen(false)
   }
+
+  const ocultarBuscador = () => {
+    }
 
   return (
        <>
@@ -70,63 +66,101 @@ export const NavBar = () => {
                 <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </label>
-              </div> 
-              <Link to="/" className="max-w-auto navbar-start px-2 mx-2 text-xl text-white font-semibold" alt='Titulo'>
-                <h1 >UNIVERSAL FITNESS</h1>
-              </Link>
+              </div>
+                <Link to="/" className="navbar-start px-2 mx-2 text-xl text-white font-semibold" alt='Titulo'>
+                  <h1>UNIVERSAL FITNESS</h1>
+                </Link>
               <div className="flex-none hidden lg:block">
                 <ul className="menu menu-horizontal">
                   {/* <!-- Contenido Navbar --> */}
-                  <Link to="/category/Calzas" onClick={resetearBusqueda} className="flex-1 nav-link px-4 text-white ">
+                  <Link 
+                  to="/category/Calzas" 
+                  onClick={() => {
+                    resetearBusqueda()
+                    ocultarBuscador()
+                  }}
+                  className="flex-1 nav-link px-4 text-white "
+                  >
                     Calzas
                   </Link>
-                  <Link to="/category/Abrigos" onClick={resetearBusqueda} className="flex-1 nav-link px-4 text-white">
+                  <Link 
+                  to="/category/Abrigos" 
+                  onClick={() => {
+                    resetearBusqueda()
+                    ocultarBuscador()
+                  }} 
+                  className="flex-1 nav-link px-4 text-white"
+                  >
                     Abrigos
                   </Link>
-                  <Link to="/category/Musculosas&Remeras" onClick={resetearBusqueda} className="flex-1 nav-link px-4 text-white">
+                  <Link 
+                  to="/category/Musculosas&Remeras"
+                  onClick={() => {
+                    resetearBusqueda()
+                    ocultarBuscador()
+                  }}  
+                  className="flex-1 nav-link px-4 text-white"
+                  >
                     Musculosas&Remeras
                   </Link>
-                  <Link to="/category/Tops" onClick={resetearBusqueda} className="flex-1 nav-link px-4 text-white">
+                  <Link 
+                  to="/category/Tops" 
+                  onClick={() => {
+                    resetearBusqueda()
+                    ocultarBuscador()
+                  }}  
+                  className="flex-1 nav-link px-4 text-white"
+                  >
                     Tops
                   </Link>
-                  <Link to="/category/Biker&Shorts" onClick={resetearBusqueda} className="flex-1 nav-link px-4 text-white">
+                  <Link 
+                  to="/category/Biker&Shorts" 
+                  onClick={() => {
+                    resetearBusqueda()
+                    ocultarBuscador()
+                  }} 
+                  className="flex-1 nav-link px-4 text-white"
+                  >
                     Biker&Shorts
                   </Link>
                    			
                 </ul>
               </div>
-                <div className="navbar-end text-black">
-                  {/* Barra busqueda mobile */}
-                  <div className='dropdown dropdown-left'> 
-                    <button tabIndex={0} role="button" className="lg:hidden btn btn-ghost btn-circle text-white">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                    </button>
-                    <div tabIndex={0} className="dropdown-content z-[1] menu shadow bg-base-100 rounded-box ">
-                      <input 
-                        type="text" 
-                        placeholder="Buscar articulo" 
-                        className="input bg-negro lg:block" 
-                        value={busqueda}
-                        onChange={(e) => setBusqueda(e.target.value)}
-                      />
-                    </div>
-                  </div>
-
-                  {/* Barra Busqueda desktop*/}
-                  <div className=''>
+              <div className="navbar-end text-black">
+              {/* Barra busqueda mobile */}
+              {location.pathname == '/' && (
+                <div className='dropdown dropdown-left'> 
+                  <button tabIndex={0} role="button" className="lg:hidden btn btn-ghost btn-circle text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                  </button>
+                  <div tabIndex={0} className="dropdown-content z-[1] menu shadow bg-base-100 rounded-box ">
                     <input 
                       type="text" 
                       placeholder="Buscar articulo" 
-                      className="input bg-negro hidden lg:block" 
+                      className="input bg-negro lg:block" 
                       value={busqueda}
                       onChange={(e) => setBusqueda(e.target.value)}
-                    />
-                  </div>
-                  <div className="dropdown dropdown-end text-white"> 
-                    <CartWidget/>      
+                      />
                   </div>
                 </div>
+              )}
+              {/* barra busqueda desktop */}
+              {location.pathname == '/' && (
+                <div className=''>
+                <input 
+                  type="text" 
+                  placeholder="Buscar articulo" 
+                  className="input bg-negro hidden lg:block" 
+                  value={busqueda}
+                  onChange={(e) => setBusqueda(e.target.value)}
+                  />
+                </div>
+              )}
+              <div className="dropdown dropdown-end text-white"> 
+                <CartWidget/>      
               </div>
+            </div>
+            </div>
             {/* <!-- Contenido aqui de la página --> */}             
             <Routes>{/*  HashRouter*/}
                <Route exact path="/" element={<ItemListContainer filteredProducts={filteredProducts}/>}/>
@@ -148,6 +182,7 @@ export const NavBar = () => {
                 onClick={() => {
                   handleLinkClick()
                   resetearBusqueda()
+                  ocultarBuscador()
                 }}
               >
                 CALZAS
@@ -158,6 +193,7 @@ export const NavBar = () => {
                 onClick={() => {
                   handleLinkClick()
                   resetearBusqueda()
+                  ocultarBuscador()
                 }}
               >
                 ABRIGOS
@@ -168,6 +204,7 @@ export const NavBar = () => {
                 onClick={() => {
                   handleLinkClick()
                   resetearBusqueda()
+                  ocultarBuscador()
                 }}
               >
                 MUSCULOSAS & REMERAS
@@ -178,6 +215,7 @@ export const NavBar = () => {
                 onClick={() => {
                   handleLinkClick()
                   resetearBusqueda()
+                  ocultarBuscador()
                 }}
               >
                 TOPS
@@ -188,6 +226,7 @@ export const NavBar = () => {
                 onClick={() => {
                   handleLinkClick()
                   resetearBusqueda()
+                  ocultarBuscador()
                 }}
               >
                 BIKER & SHORTS
@@ -208,9 +247,8 @@ function debounce(func, wait) {
       timeout = null;
       func(...args);
     };
-
     clearTimeout(timeout);
     timeout = setTimeout(later, wait);
-  };
+  }; 
 }
 
