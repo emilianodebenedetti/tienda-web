@@ -29,67 +29,57 @@ export const CarouselHome = () => {
           className="mySwiper linkCarousel carousel-container"
           >
           <SwiperSlide>
-              <img alt='Imagenes home 1' src='https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/Carrusel2.1.jpg?alt=media&token=52437485-64e0-404b-a6c8-866a08ccecb1'/>
+              <img alt='Imagenes home 1' src='https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/imagenes%2Fportada.jpg?alt=media&token=fe84f3f1-b5fd-4d97-89b9-d65d4978a4c2'/>
           </SwiperSlide>
           <SwiperSlide>
-              <img alt='Imagenes home 2' src='https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/Carrusel2.2.jpg?alt=media&token=4ceb6813-4a3f-4e7b-a084-c66b423340b7'/>
+              <img alt='Imagenes home 2' src='https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/imagenes%2Fportada.jpg?alt=media&token=fe84f3f1-b5fd-4d97-89b9-d65d4978a4c2'/>
           </SwiperSlide>
           <SwiperSlide>
-              <img alt='Imagenes home 3' src='https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/Carrusel2.3.jpg?alt=media&token=2d626d12-3eab-4a4a-8546-f55f4814637a'/>
+              <img alt='Imagenes home 3' src='https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/imagenes%2Fportada.jpg?alt=media&token=fe84f3f1-b5fd-4d97-89b9-d65d4978a4c2'/>
           </SwiperSlide>
         </Swiper>
 
-        <h2 className="text-center text-black pt-8 text-xl" >Elige tu categoria!</h2>
-        <div className="category-container w-full grid justify-items-center grid-cols-2 py-4 lg:py-12 md:py-8 md:grid-cols-3 lg:grid-cols-5 gap-4 mx-auto  mb-0 text-center text-white font-bold"> 
-          <Link className="category-link " to="/category/Calzas">
-            <div className="category-item rounded overflow-hidden h-mobile w-full">
-              <img 
-                className="category-image w-full h-full object-cover" 
-                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/imagenes-categorias%2Fcalzas.jpg?alt=media&token=a03bda60-2ebb-40ac-af94-1349be8c36c7"
-              />
-              <p className="category-text">CALZAS</p>
-            </div>
-            <p className="text-black">Calzas</p>
-          </Link>
-          <Link className="category-link " to="/category/Abrigos">
-            <div className="category-item rounded overflow-hidden h-mobile ">
-              <img 
-                className="category-image w-full h-full object-cover" 
-                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/abrigos.jpg?alt=media&token=a7457e67-4879-45c7-98d5-2dee41134726"
-              />
-              <p className="category-text">ABRIGOS</p>
-            </div>
-            <p className="text-black">Abrigos</p>
-           </Link>
-          <Link className="category-link" to="/category/Musculosas&Remeras">
+        {/* <h2 className="text-center text-black pt-8 text-xl" >Elige tu categoria!</h2> */}
+        <div className="category-container w-full grid justify-items-center grid-cols-2 py-4 lg:py-12 md:py-8 lg:grid-cols-4 gap-4 mx-auto mb-0 text-center text-white font-bold"> 
+          <Link className="category-link" to="/category/Remeras">
             <div className="category-item rounded overflow-hidden h-mobile ">
               <img 
                 className="category-image w-full h-40 object-cover" 
-                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/imagenes-categorias%2Fmusculosas%20y%20remeras.jpg?alt=media&token=d6337dba-5a88-453b-9fcd-4c72de7efe60"
+                src="https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/categorias%2FRemeras.jpg?alt=media&token=82cd5bd4-cf63-4373-8c61-9e9b1f53ac01"
               />
-              <p className="category-text">MUSCULOSAS & REMERAS</p>
+              <p className="category-text">REMERAS</p>
             </div>
-            <p className="text-black">Musculosas & Remeras</p>
+            <p className="text-black">Remeras</p>
           </Link>
-          <Link className="category-link" to="/category/Tops">
+          <Link className="category-link" to="/category/Camperas">
             <div className="category-item rounded overflow-hidden h-mobile ">
               <img 
                 className="category-image w-full h-40 object-cover" 
-                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/imagenes-categorias%2Ftops.jpg?alt=media&token=73a3c027-129d-456b-a96f-7034d1b67535"
+                src="https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/categorias%2FCamperas.jpg?alt=media&token=546ec919-48d2-4594-a98b-e487f24eace0"
               />
-              <p className="category-text">TOPS</p>
+              <p className="category-text">Camperas</p>
             </div>
-            <p className="text-black">Tops</p>
+            <p className="text-black">Camperas</p>
           </Link>
-          <Link className="category-link" to="/category/Biker&Shorts">
+          <Link className="category-link" to="/category/Pantalones-Shorts">
             <div className="category-item rounded overflow-hidden h-mobile">
               <img 
                 className="category-image w-full h-40 object-cover" 
-                src="https://firebasestorage.googleapis.com/v0/b/imgs-tienda-renato.appspot.com/o/imagenes-categorias%2Fbiker%20y%20shorts.jpg?alt=media&token=5f7939ca-08b4-4853-8314-0c7cec5f3c12"
+                src="https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/categorias%2FPantalones-Shorts.jpg?alt=media&token=75d35987-df4e-4dc6-bc9b-5da2f0cf6f95"
               />
-              <p className="category-text">BIKER & SHORTS</p>
+              <p className="category-text">Pantalones / Shorts</p>
             </div>
-            <p className="text-black">Biker & Shorts</p>
+            <p className="text-black">Pantalones / Short</p>
+          </Link>
+          <Link className="category-link" to="/category/Championes">
+            <div className="category-item rounded overflow-hidden h-mobile">
+              <img 
+                className="category-image w-full h-40 object-cover" 
+                src="https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/categorias%2FChampiones.jpg?alt=media&token=363e8714-7c32-42fc-acc8-de6264fe0e82"
+              />
+              <p className="category-text">Championes</p>
+            </div>
+            <p className="text-black">Championes</p>
           </Link>
         </div>
           

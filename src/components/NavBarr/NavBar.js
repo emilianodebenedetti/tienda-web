@@ -44,7 +44,7 @@ export const NavBar = () => {
   }
 
   const ocultarBuscador = () => {
-    }
+  }
 
   return (
        <>
@@ -58,9 +58,9 @@ export const NavBar = () => {
           /> 
           <div className="drawer-content flex flex-col">
           {/*  <!-- Navbar --> */}
-          <div className='sticky top-0 z-50 text-center text-black tracking-wide'>
+          {/* <div className='sticky top-0 z-50 text-center text-black tracking-wide'>
             ¡Envios a todo el país!
-          </div>
+          </div> */}
             <div className="sticky top-0 z-50 w-full navbar bg-black" >
               <div className="flex lg:hidden">
                 <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
@@ -68,62 +68,51 @@ export const NavBar = () => {
                 </label>
               </div>
                 <Link to="/" className="navbar-start px-2 mx-2 text-xl text-white font-semibold" alt='Titulo'>
-                  <h1>UNIVERSAL FITNESS</h1>
+                  <h1>E-Commerce DEMO</h1>
                 </Link>
               <div className="flex-none hidden lg:block">
                 <ul className="menu menu-horizontal">
                   {/* <!-- Contenido Navbar --> */}
                   <Link 
-                  to="/category/Calzas" 
-                  onClick={() => {
-                    resetearBusqueda()
-                    ocultarBuscador()
-                  }}
-                  className="flex-1 nav-link px-4 text-white "
+                    to="/category/Remeras"
+                    onClick={() => {
+                      resetearBusqueda()
+                      ocultarBuscador()
+                    }}  
+                    className="flex-1 nav-link px-4 text-white"
                   >
-                    Calzas
+                    Remeras
                   </Link>
                   <Link 
-                  to="/category/Abrigos" 
-                  onClick={() => {
-                    resetearBusqueda()
-                    ocultarBuscador()
-                  }} 
-                  className="flex-1 nav-link px-4 text-white"
+                    to="/category/Camperas" 
+                    onClick={() => {
+                      resetearBusqueda()
+                      ocultarBuscador()
+                    }}  
+                    className="flex-1 nav-link px-4 text-white"
                   >
-                    Abrigos
+                    Camperas
                   </Link>
                   <Link 
-                  to="/category/Musculosas&Remeras"
-                  onClick={() => {
-                    resetearBusqueda()
-                    ocultarBuscador()
-                  }}  
-                  className="flex-1 nav-link px-4 text-white"
+                    to="/category/Pantalones-Shorts" 
+                    onClick={() => {
+                      resetearBusqueda()
+                      ocultarBuscador()
+                    }} 
+                    className="flex-1 nav-link px-4 text-white"
                   >
-                    Musculosas&Remeras
-                  </Link>
+                    Pantalones/Shorts
+                  </Link>	
                   <Link 
-                  to="/category/Tops" 
-                  onClick={() => {
-                    resetearBusqueda()
-                    ocultarBuscador()
-                  }}  
-                  className="flex-1 nav-link px-4 text-white"
+                    to="/category/Championes" 
+                    onClick={() => {
+                      resetearBusqueda()
+                      ocultarBuscador()
+                    }} 
+                    className="flex-1 nav-link px-4 text-white"
                   >
-                    Tops
-                  </Link>
-                  <Link 
-                  to="/category/Biker&Shorts" 
-                  onClick={() => {
-                    resetearBusqueda()
-                    ocultarBuscador()
-                  }} 
-                  className="flex-1 nav-link px-4 text-white"
-                  >
-                    Biker&Shorts
-                  </Link>
-                   			
+                    Championes
+                  </Link>	
                 </ul>
               </div>
               <div className="navbar-end text-black">
@@ -170,36 +159,13 @@ export const NavBar = () => {
             </Routes>  
           <Footer/>
           </div> 
-          
           <div className="drawer-side">
             <label htmlFor="my-drawer-3" className="drawer-overlay" ></label> 
             <ul id="list-link-mobile"  className="menu p-4 pt-12 pb-24 overflow-y-auto w-80 font-semibold tracking-wide bg-grey" >
               {/* <!-- Sidebar content here --> */}
-              <h2 className="pb-12 px-2 mx-2 text-xl text-white">UNIVERSAL FITNESS</h2>
+              <h2 className="pb-12 px-2 mx-2 text-xl text-white">E-Commerce DEMO</h2>
               <Link 
-                to="/category/Calzas" 
-                className="flex-1 nav-link px-8 text-white pt-12"
-                onClick={() => {
-                  handleLinkClick()
-                  resetearBusqueda()
-                  ocultarBuscador()
-                }}
-              >
-                CALZAS
-              </Link>
-              <Link 
-                to="/category/Abrigos" 
-                className="flex-1 nav-link px-8 text-white"
-                onClick={() => {
-                  handleLinkClick()
-                  resetearBusqueda()
-                  ocultarBuscador()
-                }}
-              >
-                ABRIGOS
-              </Link>
-              <Link 
-                to="/category/Musculosas&Remeras" 
+                to="/category/Remeras" 
                 className="flex-1 nav-link px-8 text-white "
                 onClick={() => {
                   handleLinkClick()
@@ -207,10 +173,10 @@ export const NavBar = () => {
                   ocultarBuscador()
                 }}
               >
-                MUSCULOSAS & REMERAS
+                Remeras
               </Link>
               <Link 
-                to="/category/Tops" 
+                to="/category/Camperas" 
                 className="flex-1 nav-link px-8 text-white"
                 onClick={() => {
                   handleLinkClick()
@@ -218,10 +184,10 @@ export const NavBar = () => {
                   ocultarBuscador()
                 }}
               >
-                TOPS
+                Camperas
               </Link>
               <Link 
-                to="/category/Biker&Shorts" 
+                to="/category/Pantalones-Shorts" 
                 className="flex-1 nav-link px-8 text-white "
                 onClick={() => {
                   handleLinkClick()
@@ -229,7 +195,18 @@ export const NavBar = () => {
                   ocultarBuscador()
                 }}
               >
-                BIKER & SHORTS
+                Pantalones/Shorts
+              </Link>
+              <Link 
+                to="/category/Championes" 
+                className="flex-1 nav-link px-8 text-white "
+                onClick={() => {
+                  handleLinkClick()
+                  resetearBusqueda()
+                  ocultarBuscador()
+                }}
+              >
+                Championes
               </Link>                              
             </ul>                       
           </div>         

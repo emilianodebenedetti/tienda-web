@@ -11,15 +11,14 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAwstK8mEXhzxns3hj1eB5Vbo3isKUAkOI",
-  authDomain: "backend-proyect-e58f8.firebaseapp.com",
-  projectId: "backend-proyect-e58f8",
-  storageBucket: "backend-proyect-e58f8.appspot.com",
-  messagingSenderId: "794506331196",
-  appId: "1:794506331196:web:a02b0490dd9ee404b06f39"
+  apiKey: "AIzaSyAPxhDCJ1_shUtPelaE3hQliQXXlk_kgog",
+  authDomain: "e-commerce-reactjs-971e5.firebaseapp.com",
+  projectId: "e-commerce-reactjs-971e5",
+  storageBucket: "e-commerce-reactjs-971e5.appspot.com",
+  messagingSenderId: "777417866691",
+  appId: "1:777417866691:web:93808b9f82a50dc8d51176"
 };
 
- 
 export const app = initializeApp(firebaseConfig); 
 
 export const db = getFirestore(app) 
@@ -54,11 +53,3 @@ export const actualizarStock = async (itemId, quantity) => {
     stock: item.data().stock - quantity,
   })
 }
-//Buscar productos  
-/* export const searchArticles = async (searchQuery) => {
-  const articlesRef = collection(db, 'articulos');
-  const n = query(articlesRef, where('nombre', '>=', searchQuery));
-  const snapshot = await getDocs(n);
-  const articles = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-  return articles;
-}; */

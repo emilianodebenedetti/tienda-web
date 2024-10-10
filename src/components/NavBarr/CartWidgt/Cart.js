@@ -43,7 +43,7 @@ export const Cart = () => {
 	};
 
 	const generateWhatsAppLink = () => {
-		const telefono = '+59898574847'; // Reemplaza con tu número de teléfono
+		const telefono = '+59899460931'; // Reemplaza con tu número de teléfono
 		const mensaje = generateMessageContent(); // Utiliza el talle seleccionado de la compra
 		const encodedMensaje = encodeURIComponent(mensaje);
 		return `https://wa.me/${telefono}?text=${encodedMensaje}`;
