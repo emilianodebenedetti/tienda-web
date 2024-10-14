@@ -91,24 +91,24 @@ export const NavBar = () => {
                     Camperas
                   </Link>
                   <Link 
-                    to="/category/Pantalones-Shorts" 
+                    to="/category/Shorts" 
                     onClick={() => {
                       resetearBusqueda()
                       ocultarBuscador()
                     }} 
                     className="flex-1 nav-link px-4 text-white"
                   >
-                    Pantalones/Shorts
+                    Shorts
                   </Link>	
                   <Link 
-                    to="/category/Championes" 
+                    to="/category/Pantalones" 
                     onClick={() => {
                       resetearBusqueda()
                       ocultarBuscador()
                     }} 
                     className="flex-1 nav-link px-4 text-white"
                   >
-                    Championes
+                    Pantalones
                   </Link>	
                 </ul>
               </div>
@@ -184,7 +184,7 @@ export const NavBar = () => {
                 Camperas
               </Link>
               <Link 
-                to="/category/Pantalones-Shorts" 
+                to="/category/Shorts" 
                 className="flex-1 nav-link px-8 text-white "
                 onClick={() => {
                   handleLinkClick()
@@ -192,10 +192,10 @@ export const NavBar = () => {
                   ocultarBuscador()
                 }}
               >
-                Pantalones/Shorts
+                Shorts
               </Link>
               <Link 
-                to="/category/Championes" 
+                to="/category/Pantalones" 
                 className="flex-1 nav-link px-8 text-white "
                 onClick={() => {
                   handleLinkClick()
@@ -203,7 +203,7 @@ export const NavBar = () => {
                   ocultarBuscador()
                 }}
               >
-                Championes
+                Pantalones
               </Link>                              
             </ul>                       
           </div>         

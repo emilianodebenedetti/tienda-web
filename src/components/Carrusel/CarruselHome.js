@@ -57,29 +57,29 @@ export const CarouselHome = () => {
                 className="category-image w-full h-40 object-cover" 
                 src="https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/categorias%2FCamperas.jpg?alt=media&token=546ec919-48d2-4594-a98b-e487f24eace0"
               />
-              <p className="category-text">Camperas</p>
+              <p className="category-text">CAMPERAS</p>
             </div>
             <p className="text-black">Camperas</p>
           </Link>
-          <Link className="category-link" to="/category/Pantalones-Shorts">
+          <Link className="category-link" to="/category/Shorts">
             <div className="category-item rounded overflow-hidden h-mobile">
               <img 
                 className="category-image w-full h-40 object-cover" 
                 src="https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/categorias%2FPantalones-Shorts.jpg?alt=media&token=75d35987-df4e-4dc6-bc9b-5da2f0cf6f95"
               />
-              <p className="category-text">Pantalones / Shorts</p>
+              <p className="category-text">SHORTS</p>
             </div>
-            <p className="text-black">Pantalones / Short</p>
+            <p className="text-black">Shorts</p>
           </Link>
-          <Link className="category-link" to="/category/Championes">
+          <Link className="category-link" to="/category/Pantalones">
             <div className="category-item rounded overflow-hidden h-mobile">
               <img 
                 className="category-image w-full h-40 object-cover" 
-                src="https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/categorias%2FChampiones.jpg?alt=media&token=363e8714-7c32-42fc-acc8-de6264fe0e82"
+                src="https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/categorias%2FPantalon%20Negro%20UA.jpg?alt=media&token=d33fe82c-54c0-4f41-bbc4-3e495a751303"
               />
-              <p className="category-text">Championes</p>
+              <p className="category-text">PANTALONES</p>
             </div>
-            <p className="text-black">Championes</p>
+            <p className="text-black">Pantalones</p>
           </Link>
         </div>
           
