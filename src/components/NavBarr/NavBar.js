@@ -58,13 +58,13 @@ export const NavBar = () => {
           /> 
           <div className="drawer-content flex flex-col">
           {/*  <!-- Navbar --> */}
-            <div className="sticky top-0 z-50 w-full navbar bg-black px-20" >
+            <div className="sticky top-0 z-50 w-full navbar bg-black lg:px-20" >
               <div className="flex lg:hidden">
                 <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </label>
               </div>
-                <Link to="/" className="navbar-start px-2 mx-2 text-xl text-white font-semibold" alt='Titulo'>
+                <Link to="/" className="navbar-start text-xl text-white font-semibold" alt='Titulo'>
                   <h1>E-Commerce DEMO</h1>
                 </Link>
               <div className="flex-none hidden lg:block">
