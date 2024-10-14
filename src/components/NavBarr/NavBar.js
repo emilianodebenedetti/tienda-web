@@ -58,10 +58,7 @@ export const NavBar = () => {
           /> 
           <div className="drawer-content flex flex-col">
           {/*  <!-- Navbar --> */}
-          {/* <div className='sticky top-0 z-50 text-center text-black tracking-wide'>
-            ¡Envios a todo el país!
-          </div> */}
-            <div className="sticky top-0 z-50 w-full navbar bg-black" >
+            <div className="sticky top-0 z-50 w-full navbar bg-black px-20" >
               <div className="flex lg:hidden">
                 <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -115,7 +112,7 @@ export const NavBar = () => {
                   </Link>	
                 </ul>
               </div>
-              <div className="navbar-end text-black">
+              <div className="navbar-end text-black ">
               {/* Barra busqueda mobile */}
               {location.pathname == '/' && (
                 <div className='dropdown dropdown-left'> 
@@ -157,7 +154,7 @@ export const NavBar = () => {
                <Route path="/item/:id" element={<ItemDetailContainer/>} />
                <Route path="/cart" element={<Cart/>}/>
             </Routes>  
-          <Footer/>
+            <Footer/>
           </div> 
           <div className="drawer-side">
             <label htmlFor="my-drawer-3" className="drawer-overlay" ></label> 

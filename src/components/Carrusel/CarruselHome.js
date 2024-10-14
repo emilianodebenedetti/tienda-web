@@ -26,16 +26,16 @@ export const CarouselHome = () => {
             disableOnInteraction: false,
           }}
           loop="true"
-          className="mySwiper linkCarousel carousel-container"
+          className="mySwiper linkCarousel carousel-container lg:max-h-[600px]"/* max-h-[180px] md:max-h-[400px]  flex justify-center items-center */
           >
           <SwiperSlide>
-              <img alt='Imagenes home 1' src='https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/imagenes%2Fportada.jpg?alt=media&token=fe84f3f1-b5fd-4d97-89b9-d65d4978a4c2'/>
+              <img alt='Imagenes home 1' src='https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/imagenes%2FPortada1.jpg?alt=media&token=107bf211-0882-4c87-a9e0-b2361d756a1d'/>
           </SwiperSlide>
           <SwiperSlide>
-              <img alt='Imagenes home 2' src='https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/imagenes%2Fportada.jpg?alt=media&token=fe84f3f1-b5fd-4d97-89b9-d65d4978a4c2'/>
+              <img alt='Imagenes home 2' src='https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/imagenes%2FPortada2.jpg?alt=media&token=d0fd4c1b-b803-42c7-b7aa-dba487e3d3d5'/>
           </SwiperSlide>
           <SwiperSlide>
-              <img alt='Imagenes home 3' src='https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/imagenes%2Fportada.jpg?alt=media&token=fe84f3f1-b5fd-4d97-89b9-d65d4978a4c2'/>
+              <img alt='Imagenes home 3' src='https://firebasestorage.googleapis.com/v0/b/e-commerce-reactjs-971e5.appspot.com/o/imagenes%2FPortada3%20.jpg?alt=media&token=e323d1ab-56f4-4d62-8e74-b972e89ff01c'/>
           </SwiperSlide>
         </Swiper>
 

@@ -43,7 +43,6 @@ const CartContextProvider = ({ children }) => {
         }
     };
 
-
     const deleteFromCart = (producto) => {
         const newCart = [...cart]
         const productIsInCart = isInCart(producto.id)
